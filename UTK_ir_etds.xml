@@ -665,15 +665,20 @@
       </element>
       <element name="genre">
         <properties>
-          <type>textfield</type>
+          <type>select</type>
           <access>TRUE</access>
           <autocomplete_path>islandora_autocomplete/islandora:citationCModel/mods.genre</autocomplete_path>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <default_value>Dissertation/Thesis</default_value>
+          <default_value>Theses</default_value>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
+          <options>
+            <Theses>Theses</Theses>
+            <Datasets>Datasets</Datasets>
+            <Dissertations>Dissertations</Dissertations>
+          </options>
           <required>FALSE</required>
           <resizable>FALSE</resizable>
           <title>Genre</title>
@@ -731,19 +736,19 @@
           </actions>
         </properties>
         <children>
-          <element name="dateIssued">
+          <element name="dateCreated">
             <properties>
               <type>textfield</type>
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>The year this book was issued.</description>
+              <description>The year this ETD was created.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
               <required>TRUE</required>
               <resizable>FALSE</resizable>
-              <title>Date Issued</title>
+              <title>Date Created</title>
               <tree>TRUE</tree>
               <actions>
                 <create>
@@ -752,10 +757,46 @@
                   <schema/>
                   <type>xml</type>
                   <prefix>NULL</prefix>
-                  <value>&lt;dateIssued keyDate="yes"&gt;%value%&lt;/dateIssued&gt;</value>
+                  <value>&lt;dateCreated encoding="edtf" keyDate="yes" point="start"&gt;%value%&lt;/dateIssued&gt;</value>
                 </create>
                 <read>
-                  <path>mods:dateIssued</path>
+                  <path>mods:dateCreated</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="dateCreatedRange">
+            <properties>
+              <type>textfield</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <description>The ending date in a range of dates. </description>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>Date Created - End</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;dateCreated keyDate="yes" encoding="edtf" point="end"&gt;%value%&lt;/dateCreated&gt;</value>
+                </create>
+                <read>
+                  <path>mods:dateCreated[2]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -887,7 +928,7 @@
                 <microfiche>microfiche</microfiche>
                 <microfilm>microfilm</microfilm>
               </options>
-              <required>FALSE</required>
+              <required>TRUE</required>
               <resizable>FALSE</resizable>
               <title>Form</title>
               <tree>TRUE</tree>
@@ -956,6 +997,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
+          <description>Descriptive information pertaining to the digitized object's content. Use 'note' for general notes.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -991,6 +1033,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
+          <description>General notes pertaining to the ETD.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
