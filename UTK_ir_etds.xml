@@ -194,6 +194,7 @@
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <options>
+                    <conference>conference</conference>
                     <personal>personal</personal>
                     <corporate>corporate</corporate>
                   </options>
@@ -282,6 +283,42 @@
                     </create>
                     <read>
                       <path>mods:namePart[@type='family']</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+              <element name="namePart">
+                <properties>
+                  <type>textfield</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <description>Use this field for Conferences or Corporate names.</description>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <required>FALSE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Corporate or Conference Name</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>xml</type>
+                      <prefix>NULL</prefix>
+                      <value>&lt;namePart&gt;%value%&lt;/namePart&gt;</value>
+                    </create>
+                    <read>
+                      <path>mods:namePart</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -631,15 +668,30 @@
       </element>
       <element name="typeOfResource">
         <properties>
-          <type>hidden</type>
+          <type>select</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
+          <description>Select an appropriate type that describes the ETD.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
-          <required>FALSE</required>
+          <options>
+            <index key="mixed material">mixed material</index>
+            <index key="software, multimedia">software, multimedia</index>
+            <index key="three dimensional object">three dimensional object</index>
+            <index key="moving image">moving image</index>
+            <index key="still image">still image</index>
+            <index key="sound recording - nonmusical">sound recording - nonmusical</index>
+            <index key="sound recording - musical">sound recording - musical</index>
+            <index key="sound recording">sound recording</index>
+            <index key="notated music">notated music</index>
+            <cartographic>cartographic</cartographic>
+            <text>text</text>
+          </options>
+          <required>TRUE</required>
           <resizable>FALSE</resizable>
+          <title>Type of Resource</title>
           <tree>TRUE</tree>
           <actions>
             <create>
@@ -843,6 +895,41 @@
             <children/>
           </element>
         </children>
+      </element>
+      <element name="languageOfCataloging">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>TRUE</required>
+          <resizable>FALSE</resizable>
+          <title>Language of Cataloging</title>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;languageOfCataloging&gt;&lt;languageTerm type="code" authority="iso639-2b"&gt;eng&lt;/languageTerm&gt;&lt;/languageOfCataloging&gt;</value>
+            </create>
+            <read>
+              <path>mods:mods/mods:languageOfCataloging/mods:languageTerm[@type='code' and @authority='iso639-2b']</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
       </element>
       <element name="language">
         <properties>
