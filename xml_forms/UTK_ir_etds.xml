@@ -50,9 +50,9 @@
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>element</type>
+              <type>xml</type>
               <prefix>NULL</prefix>
-              <value>titleInfo</value>
+              <value>&lt;titleInfo&gt;&lt;/titleInfo&gt;</value>
             </create>
             <read>
               <path>mods:titleInfo</path>
@@ -81,47 +81,12 @@
                   <path>self::node()</path>
                   <context>parent</context>
                   <schema/>
-                  <type>element</type>
+                  <type>xml</type>
                   <prefix>NULL</prefix>
-                  <value>title</value>
+                  <value>&lt;title&gt;%value%&lt;/title&gt;</value>
                 </create>
                 <read>
                   <path>mods:title</path>
-                  <context>parent</context>
-                </read>
-                <update>
-                  <path>self::node()</path>
-                  <context>self</context>
-                </update>
-                <delete>NULL</delete>
-              </actions>
-            </properties>
-            <children/>
-          </element>
-          <element name="subTitle">
-            <properties>
-              <type>textarea</type>
-              <access>TRUE</access>
-              <collapsed>FALSE</collapsed>
-              <collapsible>FALSE</collapsible>
-              <disabled>FALSE</disabled>
-              <executes_submit_callback>FALSE</executes_submit_callback>
-              <multiple>FALSE</multiple>
-              <required>FALSE</required>
-              <resizable>FALSE</resizable>
-              <title>Sub Title</title>
-              <tree>TRUE</tree>
-              <actions>
-                <create>
-                  <path>self::node()</path>
-                  <context>parent</context>
-                  <schema/>
-                  <type>element</type>
-                  <prefix>NULL</prefix>
-                  <value>subTitle</value>
-                </create>
-                <read>
-                  <path>mods:subTitle</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -189,6 +154,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Use for First Name.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -224,6 +190,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Use for Last Name.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -348,6 +315,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Use to Specify Name of Thesis Advisor</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -435,6 +403,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Use to List Committee Members</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -649,7 +618,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Abstract</description>
+          <description>The Abstract for Your Thesis or Dissertation</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -685,6 +654,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
+          <description>Include Any Comments for the Graduate School</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -720,6 +690,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
+          <description>This isn't in the data dictionary but is used at other institutions.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -797,18 +768,19 @@
               </actions>
             </properties>
             <children>
-              <element name="topic">
+              <element name="Discipline">
                 <properties>
                   <type>textfield</type>
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Include Your Academic Discipline</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Topic</title>
+                  <title>Discipline</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -821,76 +793,6 @@
                     </create>
                     <read>
                       <path>mods:topic</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="geographic">
-                <properties>
-                  <type>textfield</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Geographic</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>element</type>
-                      <prefix>NULL</prefix>
-                      <value>geographic</value>
-                    </create>
-                    <read>
-                      <path>mods:geographic</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="temporal">
-                <properties>
-                  <type>textfield</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Temporal</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>element</type>
-                      <prefix>NULL</prefix>
-                      <value>temporal</value>
-                    </create>
-                    <read>
-                      <path>mods:temporal</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -919,25 +821,6 @@
           <resizable>FALSE</resizable>
           <title>Local Identifier</title>
           <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>xml</type>
-              <prefix>NULL</prefix>
-              <value>&lt;identifier type="local"&gt;%value%&lt;/identifier&gt;</value>
-            </create>
-            <read>
-              <path>mods:identifier[@type='local']</path>
-              <context>parent</context>
-            </read>
-            <update>
-              <path>self::node()</path>
-              <context>self</context>
-            </update>
-            <delete>NULL</delete>
-          </actions>
         </properties>
         <children/>
       </element>
@@ -1015,6 +898,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Use for Degree Name (e.g. Master of Science, Master of Arts, etc.)</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1044,9 +928,9 @@
                 </properties>
                 <children/>
               </element>
-              <element name="level">
+              <element name="grantor">
                 <properties>
-                  <type>textfield</type>
+                  <type>hidden</type>
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
@@ -1062,9 +946,9 @@
                       <path>self::node()</path>
                       <context>parent</context>
                       <schema/>
-                      <type>element</type>
-                      <prefix>etd</prefix>
-                      <value>etd:grantor</value>
+                      <type>xml</type>
+                      <prefix>NULL</prefix>
+                      <value>&lt;etd:grantor&gt;University of Tennessee&lt;/etd:grantor&gt;</value>
                     </create>
                     <read>
                       <path>etd:grantor</path>
@@ -1085,6 +969,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Use to Specify Discipline (e.g. Architecture, Philosophy, Chemistry, etc.)</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1192,6 +1077,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
+          <description>Include any Keywords that Describe Your ETD</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -1378,6 +1264,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Use for Title of Supplemental File</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1390,7 +1277,7 @@
                       <path>self::node()</path>
                       <context>parent</context>
                       <schema/>
-                      <type>element</type>
+                      <type>xml</type>
                       <prefix>NULL</prefix>
                       <value>&lt;titleInfo&gt;&lt;title&gt;%value%&lt;/title&gt;&lt;/titleInfo&gt;</value>
                     </create>
@@ -1413,6 +1300,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Use to Describe Your Supplemental File</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1425,7 +1313,7 @@
                       <path>self::node()</path>
                       <context>parent</context>
                       <schema/>
-                      <type>element</type>
+                      <type>xml</type>
                       <prefix>NULL</prefix>
                       <value>&lt;abstract&gt;%value%&lt;/abstract&gt;</value>
                     </create>
@@ -1470,6 +1358,23 @@
             </children>
           </element>
         </children>
+      </element>
+      <element name="ingest-file-location">
+        <properties>
+          <type>file</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <description>This is a Test Upload</description>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <title>File Upload</title>
+          <tree>TRUE</tree>
+        </properties>
+        <children/>
       </element>
     </children>
   </form>
