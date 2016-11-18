@@ -160,7 +160,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Given Name</title>
+                  <title>Author First Name/Given Name</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -196,7 +196,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Family Name</title>
+                  <title>Author Last Name/Family Name</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -315,7 +315,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Use to Specify Name of Thesis Advisor</description>
+                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -403,7 +403,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Use to List Committee Members</description>
+                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -540,18 +540,37 @@
         <children>
           <element name="dateIssued">
             <properties>
-              <type>date</type>
+              <type>select</type>
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>The year your thesis or dissertation was submitted.</description>
+              <default_value>December 2016</default_value>
+              <description>Your graduation date. Choose May, August or December.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
+              <options>
+                <index key="12/2016">December 2016</index>
+                <index key="05/2017">May 2017</index>
+                <index key="08/2017">August 2017</index>
+              </options>
               <required>TRUE</required>
               <resizable>FALSE</resizable>
               <title>Date of Award</title>
               <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;dateIssued keyDate="yes"&gt;%value%&lt;/dateIssued&gt;</value>
+                </create>
+                <read>NULL</read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
             </properties>
             <children/>
           </element>
@@ -635,7 +654,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Include Any Comments for the Graduate School</description>
+          <description>Add coments, e.g, Portions of this document were previously published in journal..."</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -866,8 +885,8 @@
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <options>
-                    <index key="Masters (pre-doctoral)">Masters</index>
-                    <index key="Doctoral (includes post-doctoral)">Doctoral</index>
+                    <index key="Masters (pre-doctoral)">Masters Thesis</index>
+                    <index key="Doctoral (includes post-doctoral)">Doctoral Dissertation</index>
                   </options>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
@@ -973,7 +992,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Include any Keywords that Describe Your ETD</description>
+          <description>Please enter up to 6 keywords or phrases, separated by commas, to help searchers find your thesis. If your thesis is about radiology, you may want to add terms such as health care, X-rays, etc.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
