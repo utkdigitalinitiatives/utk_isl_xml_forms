@@ -734,14 +734,23 @@
             <children>
               <element name="name">
                 <properties>
-                  <type>textfield</type>
+                  <type>select</type>
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <default_value>Master of Science</default_value>
                   <description>Use for Degree Name (e.g. Master of Science, Master of Arts, etc.)</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
+                  <options>
+                    <index key="Graduate Certificate">Graduate Certificate</index>
+                    <index key="Master of Architecture">Master of Architecture</index>
+                    <index key="Master of Landscape Architecture">Master of Landscape Architecture</index>
+                    <index key="Doctorate of Philosophy">Doctorate of Philosophy</index>
+                    <index key="Master of Arts">Master of Arts</index>
+                    <index key="Master of Science">Master of Science</index>
+                  </options>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
                   <title>Name</title>
@@ -819,7 +828,6 @@
                     <index key="Biosystems Engineering Technology">Biosystems Engineering Technology</index>
                     <index key="Energy Science and Engineering">Energy Science and Engineering</index>
                     <index key="Biosystems Engineering">Biosystems Engineering</index>
-                    <index key=""/>
                     <index key="Natural Resource Economics">Natural Resource Economics</index>
                     <index key="Agricultural Economics">Agricultural Economics</index>
                     <index key="Agricultural Leadership">Agricultural Leadership</index>
