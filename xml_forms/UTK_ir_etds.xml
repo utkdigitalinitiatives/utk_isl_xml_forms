@@ -805,14 +805,26 @@
               </element>
               <element name="discipline">
                 <properties>
-                  <type>textfield</type>
+                  <type>select</type>
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <default_value>Agricultural Communications</default_value>
                   <description>Use to Specify Discipline (e.g. Architecture, Philosophy, Chemistry, etc.)</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
+                  <options>
+                    <index key="Environmental Soil Science">Environmental Soil Science</index>
+                    <index key="Biosystems Engineering Technology">Biosystems Engineering Technology</index>
+                    <index key="Energy Science and Engineering">Energy Science and Engineering</index>
+                    <index key="Biosystems Engineering">Biosystems Engineering</index>
+                    <index key="Natural Resource Economics">Natural Resource Economics</index>
+                    <index key="Agricultural Economics">Agricultural Economics</index>
+                    <index key="Agricultural Leadership">Agricultural Leadership</index>
+                    <index key="Agricultural Education">Agricultural Education</index>
+                    <index key="Agricultural Communications">Agricultural Communications</index>
+                  </options>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
                   <title>Discipline</title>
