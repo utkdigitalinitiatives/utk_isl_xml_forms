@@ -744,12 +744,30 @@
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <options>
-                    <index key="Graduate Certificate">Graduate Certificate</index>
-                    <index key="Master of Architecture">Master of Architecture</index>
-                    <index key="Master of Landscape Architecture">Master of Landscape Architecture</index>
+                    <index key="Doctor of Law">Doctor of Law</index>
+                    <index key="Doctor of Nursing Practice">Doctor of Nursing Practice</index>
+                    <index key="Doctor of Veterinary Medicine">Doctor of Veterinary Medicine</index>
                     <index key="Doctorate of Philosophy">Doctorate of Philosophy</index>
+                    <index key="Doctorate of Public Health">Doctorate of Public Health</index>
+                    <index key="Doctorate of Social Work">Doctorate of Social Work</index>
+                    <index key="Education Specialist">Education Specialist</index>
+                    <index key="Graduate Certificate">Graduate Certificate</index>
+                    <index key="Master of Accounting">Master of Accounting</index>
+                    <index key="Master of Architecture">Master of Architecture</index>
                     <index key="Master of Arts">Master of Arts</index>
+                    <index key="Master of Arts in Landscape Architecture">Master of Arts in Landscape Architecture</index>
+                    <index key="Master of Business Administration">Master of Business Administration</index>
+                    <index key="Master of Fine Arts">Master of Fine Arts</index>
+                    <index key="Master of Landscape Architecture">Master of Landscape Architecture</index>
+                    <index key="Master of Laws">Master of Laws</index>
+                    <index key="Master of Mathematics">Master of Mathematics</index>
+                    <index key="Master of Music">Master of Music</index>
+                    <index key="Master of Nursing">Master of Nursing</index>
+                    <index key="Master of Public Health">Master of Public Health</index>
+                    <index key="Master of Public Policy and Administration">Master of Public Policy and Administration</index>
                     <index key="Master of Science">Master of Science</index>
+                    <index key="Master of Science in Landscape Architecture">Master of Science in Landscape Architecture</index>
+                    <index key="Master of Science in Social Work">Master of Science in Social Work</index>
                   </options>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
