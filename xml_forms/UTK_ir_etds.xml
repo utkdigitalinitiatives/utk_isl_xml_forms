@@ -345,11 +345,13 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <description>Enter 16 digit id in the following format: xxxx-xxxx-xxxx-xxxx</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
+                  <title>Author Identifier (ORCID iD)</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
