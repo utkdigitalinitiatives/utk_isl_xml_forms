@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns="http://www.loc.gov/mods/v3" xmlns:etd="http://www.ndltd.org/standards/metadata/etdms/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/standards/mods/v3/mods-3-5.xsd">
+  <mods:titleInfo>
+    <mods:title>adlkfj;lkjasdf</mods:title>
+  </mods:titleInfo>
+  <mods:name type="personal" authority="orcid" authorityURI="http://id.loc.gov/vocabulary/identifiers/orcid.html" valueURI="1234-2345-3456-4567">
+    <mods:namePart type="given">First</mods:namePart>
+    <mods:namePart type="family">Last</mods:namePart>
+    <mods:role>
+      <mods:roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/aut">author</mods:roleTerm>
+    </mods:role>
+  </mods:name>
+  <mods:name type="personal" authority="orcid" authorityURI="http://id.loc.gov/vocabulary/identifiers/orcid.html" valueURI="2345-3456-4567-5678">
+    <mods:displayForm>First Last</mods:displayForm>
+    <mods:role>
+      <mods:roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/ths">Thesis advisor</mods:roleTerm>
+    </mods:role>
+  </mods:name>
+  <mods:name type="personal" authority="orcid" authorityURI="http://id.loc.gov/vocabulary/identifiers/orcid.html" valueURI="3456-4567-5678-6789">
+    <mods:displayForm>First Last</mods:displayForm>
+    <mods:role>
+      <mods:roleTerm type="text">Committee member</mods:roleTerm>
+    </mods:role>
+  </mods:name>
+  <mods:typeOfResource>text</mods:typeOfResource>
+  <mods:genre authority="lcgft" valueURI="http://id.loc.gov/authorities/genreForms/gf2014026039">Academic theses</mods:genre>
+  <mods:originInfo>
+    <mods:dateIssued keyDate="yes" authority="edtf">2016-12</mods:dateIssued>
+  </mods:originInfo>
+  <mods:language>
+    <mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+  </mods:language>
+  <mods:abstract>abstract abstract abstract</mods:abstract>
+  <mods:note displayLabel="Submitted Comment">comments comments comments</mods:note>
+  <mods:extension>
+    <etd:degree>
+      <etd:name>Master of Science</etd:name>
+      <etd:grantor>University of Tennessee</etd:grantor>
+      <etd:discipline>Aerospace Engineering</etd:discipline>
+      <etd:level>Masters (pre-doctoral)</etd:level>
+    </etd:degree>
+  </mods:extension>
+  <mods:relatedItem type="series">
+    <mods:titleInfo>
+      <mods:title>Masters Theses</mods:title>
+    </mods:titleInfo>
+  </mods:relatedItem>
+  <mods:note displayLabel="Keywords Submitted by Author">kw1, kw2, kw3, kw4, kw5, kw6</mods:note>
+  <mods:recordInfo>
+    <mods:recordCreationDate encoding="w3cdtf"/>
+    <mods:recordChangeDate keyDate="yes"/>
+  </mods:recordInfo>
+  <mods:relatedItem type="constituent">
+    <mods:titleInfo>
+      <mods:title/>
+    </mods:titleInfo>
+    <mods:abstract/>
+  </mods:relatedItem>
+</mods:mods>
