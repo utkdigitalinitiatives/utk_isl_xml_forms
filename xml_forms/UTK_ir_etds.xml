@@ -434,7 +434,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Qualified Name</title>
+                  <title>Advisor/Major Professor Name</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -587,7 +587,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Advisor Identifier (ORCID iD)</title>
+                  <title>Advisor/Major Professor Identifier</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -669,7 +669,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Qualified Name</title>
+                  <title>Committee Member Name</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -820,7 +820,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Advisor Identifier (ORCID iD)</title>
+                  <title>Committee Member Identifier</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
