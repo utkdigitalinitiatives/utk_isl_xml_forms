@@ -21,7 +21,7 @@
   <!-- *if* the valueURI is empty, copy the name element, but remove all attributes but @type='personal' -->
   <xsl:template match="mods:name[@authority='orcid'][@valueURI='']">
     <xsl:copy>
-      <xsl:attribute name="type">personal</xsl:attribute>
+      <xsl:apply-templates select="@type"/>
       <xsl:apply-templates/>
     </xsl:copy>
   </xsl:template>
