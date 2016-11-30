@@ -26,4 +26,17 @@
     </xsl:copy>
   </xsl:template>
 
+  <!--
+    *if* the @valueURI attached to mods:name[@authority='orcid'] is not
+    empty, process it separately in this template. this overrides the
+    default identity transform.
+  -->
+  <xsl:template match="mods:name[@authority='orcid']/@valueURI">
+    <xsl:if test="not(.='')">
+      <xsl:attribute name="valueURI">
+        <xsl:value-of select="concat('http://orcid.org/', .)"/>
+      </xsl:attribute>
+    </xsl:if>
+  </xsl:template>
+
 </xsl:stylesheet>
