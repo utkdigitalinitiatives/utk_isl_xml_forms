@@ -97,7 +97,10 @@
                   <prefix>NULL</prefix>
                   <value>titleInfo</value>
                 </create>
-                <read>NULL</read>
+                <read>
+                  <path>mods:titleInfo</path>
+                  <context>parent</context>
+                </read>
                 <update>NULL</update>
                 <delete>NULL</delete>
               </actions>
@@ -322,8 +325,14 @@ Please ensure that the descriptive information pertains to the digitized object 
               <prefix>NULL</prefix>
               <value>&lt;originInfo&gt;&lt;dateCreated&gt;%value%&lt;/dateCreated&gt;&lt;/originInfo&gt;</value>
             </create>
-            <read>NULL</read>
-            <update>NULL</update>
+            <read>
+              <path>mods:originInfo/mods:dateCreated</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
@@ -410,8 +419,14 @@ Please ensure that the descriptive information pertains to the digitized object 
               <prefix>NULL</prefix>
               <value>note</value>
             </create>
-            <read>NULL</read>
-            <update>NULL</update>
+            <read>
+              <path>mods:note</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
@@ -510,8 +525,14 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <prefix>NULL</prefix>
                   <value>subject</value>
                 </create>
-                <read>NULL</read>
-                <update>NULL</update>
+                <read>
+                  <path>mods:subject/mods:geographic/..</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
                 <delete>NULL</delete>
               </actions>
             </properties>
@@ -540,7 +561,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>geographic</value>
                     </create>
                     <read>
-                      <path>mods:subject</path>
+                      <path>mods:geographic</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -575,8 +596,14 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <prefix>NULL</prefix>
                       <value>authority</value>
                     </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
+                    <read>
+                      <path>@authority</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
                     <delete>NULL</delete>
                   </actions>
                 </properties>
@@ -605,8 +632,14 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <prefix>NULL</prefix>
                       <value>valueURI</value>
                     </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
+                    <read>
+                      <path>@valueURI</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
                     <delete>NULL</delete>
                   </actions>
                 </properties>
@@ -651,8 +684,14 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <prefix>NULL</prefix>
                   <value>subject</value>
                 </create>
-                <read>NULL</read>
-                <update>NULL</update>
+                <read>
+                  <path>mods:subject/mods:name/..</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
                 <delete>NULL</delete>
               </actions>
             </properties>
@@ -681,7 +720,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>&lt;name&gt;&lt;namePart&gt;%value%&lt;/namePart&gt;&lt;/name&gt;</value>
                     </create>
                     <read>
-                      <path>mods:subject</path>
+                      <path>mods:name/mods:namePart</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -716,8 +755,14 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <prefix>NULL</prefix>
                       <value>authority</value>
                     </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
+                    <read>
+                      <path>@authority</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
                     <delete>NULL</delete>
                   </actions>
                 </properties>
@@ -746,8 +791,14 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <prefix>NULL</prefix>
                       <value>valueURI</value>
                     </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
+                    <read>
+                      <path>@valueURI</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
                     <delete>NULL</delete>
                   </actions>
                 </properties>
@@ -792,13 +843,19 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <prefix>NULL</prefix>
                   <value>subject</value>
                 </create>
-                <read>NULL</read>
-                <update>NULL</update>
+                <read>
+                  <path>mods:subject/mods:topic/..</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
                 <delete>NULL</delete>
               </actions>
             </properties>
             <children>
-              <element name="subjectGeographic">
+              <element name="subjectTopic">
                 <properties>
                   <type>textarea</type>
                   <access>TRUE</access>
@@ -822,7 +879,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>topic</value>
                     </create>
                     <read>
-                      <path>mods:subject</path>
+                      <path>mods:topic</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -857,8 +914,14 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <prefix>NULL</prefix>
                       <value>authority</value>
                     </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
+                    <read>
+                      <path>@authority</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
                     <delete>NULL</delete>
                   </actions>
                 </properties>
@@ -887,8 +950,14 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <prefix>NULL</prefix>
                       <value>valueURI</value>
                     </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
+                    <read>
+                      <path>@valueURI</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
                     <delete>NULL</delete>
                   </actions>
                 </properties>
