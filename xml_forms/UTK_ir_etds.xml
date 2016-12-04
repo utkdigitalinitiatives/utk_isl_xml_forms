@@ -330,7 +330,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>If you have an ORCID iD (this is optional but recommended), enter you 16 digit ORCID in the following format: xxxx-xxxx-xxxx-xxxx. More information: &lt;a href="http://orcid.org"&gt;http://orcid.org&lt;/a&gt;.</description>
+              <description>If you have an ORCID iD (this is optional but recommended), enter your 16 digit ORCID in the following format: xxxx-xxxx-xxxx-xxxx. More information at &lt;a href="http://orcid.org"&gt;orcid.org&lt;/a&gt;.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
