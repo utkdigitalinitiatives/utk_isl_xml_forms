@@ -28,15 +28,24 @@
 
   <!--
     *if* the @valueURI attached to mods:name[@authority='orcid'] is not
-    empty, process it separately in this template. this overrides the
-    default identity transform.
+    empty AND does not start with 'http://orcid.org', process it separately
+    in this template. this overrides the default identity transform.
   -->
-  <xsl:template match="mods:name[@authority='orcid']/@valueURI">
-    <xsl:if test="not(.='')">
-      <xsl:attribute name="valueURI">
+  <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (not(starts-with(.,'http://orcid.org')))]">
+    <xsl:attribute name="valueURI">
         <xsl:value-of select="concat('http://orcid.org/', .)"/>
-      </xsl:attribute>
-    </xsl:if>
+    </xsl:attribute>
+  </xsl:template>
+
+  <!--
+    *if* the valueURI attached to mods:name[@authority='orcid'] is not empty
+    AND starts with 'http://orcid.org', use the default template rules to copy
+    the valueURI attribute.
+  -->
+  <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (starts-with(.,'http://orcid.org'))]">
+    <xsl:copy>
+      <xsl:apply-templates/>
+    </xsl:copy>
   </xsl:template>
 
 </xsl:stylesheet>
