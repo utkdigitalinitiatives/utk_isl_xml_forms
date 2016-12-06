@@ -122,8 +122,14 @@
               <prefix>NULL</prefix>
               <value>name</value>
             </create>
-            <read>NULL</read>
-            <update>NULL</update>
+            <read>
+              <path>mods:name[@type='personal']/mods:role[mods:roleTerm = 'author']/..</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
@@ -152,7 +158,7 @@
                   <value>&lt;namePart type='given'&gt;%value%&lt;/namePart&gt;</value>
                 </create>
                 <read>
-                  <path>mods:namePart[@type = 'given']</path>
+                  <path>mods:namePart[@type='given']</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -324,7 +330,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>Enter 16 digit id in the following format: xxxx-xxxx-xxxx-xxxx</description>
+              <description>If you have an ORCID iD (this is optional but recommended), enter your 16 digit ORCID in the following format: xxxx-xxxx-xxxx-xxxx. More information at &lt;a href="http://orcid.org"&gt;orcid.org&lt;/a&gt;.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -341,8 +347,14 @@
                   <prefix>NULL</prefix>
                   <value>valueURI</value>
                 </create>
-                <read>NULL</read>
-                <update>NULL</update>
+                <read>
+                  <path>@valueURI</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
                 <delete>NULL</delete>
               </actions>
             </properties>
@@ -486,94 +498,6 @@
                       <type>xml</type>
                       <prefix>NULL</prefix>
                       <value>&lt;role&gt;&lt;roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/ths"&gt;Thesis advisor&lt;/roleTerm&gt;&lt;/role&gt;</value>
-                    </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="authority">
-                <properties>
-                  <type>hidden</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <default_value>orcid</default_value>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>attribute</type>
-                      <prefix>NULL</prefix>
-                      <value>authority</value>
-                    </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="authorityURI">
-                <properties>
-                  <type>hidden</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <default_value>http://id.loc.gov/vocabulary/identifiers/orcid.html</default_value>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>attribute</type>
-                      <prefix>NULL</prefix>
-                      <value>authorityURI</value>
-                    </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="valueURI">
-                <properties>
-                  <type>textfield</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <description>Enter 16 digit id in the following format: xxxx-xxxx-xxxx-xxxx</description>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Advisor/Major Professor Identifier</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>attribute</type>
-                      <prefix>NULL</prefix>
-                      <value>valueURI</value>
                     </create>
                     <read>NULL</read>
                     <update>NULL</update>
@@ -727,94 +651,6 @@
                 </properties>
                 <children/>
               </element>
-              <element name="authority">
-                <properties>
-                  <type>hidden</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <default_value>orcid</default_value>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>attribute</type>
-                      <prefix>NULL</prefix>
-                      <value>authority</value>
-                    </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="authorityURI">
-                <properties>
-                  <type>hidden</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <default_value>http://id.loc.gov/vocabulary/identifiers/orcid.html</default_value>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>attribute</type>
-                      <prefix>NULL</prefix>
-                      <value>authorityURI</value>
-                    </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="valueURI">
-                <properties>
-                  <type>textfield</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <description>Enter 16 digit id in the following format: xxxx-xxxx-xxxx-xxxx</description>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Committee Member Identifier</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>attribute</type>
-                      <prefix>NULL</prefix>
-                      <value>valueURI</value>
-                    </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
             </children>
           </element>
         </children>
@@ -926,7 +762,6 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <default_value>December 2016</default_value>
               <description>Your graduation date. Choose May, August or December.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
@@ -949,8 +784,14 @@
                   <prefix>NULL</prefix>
                   <value>&lt;dateIssued keyDate="yes" authority="edtf"&gt;%value%&lt;/dateIssued&gt;</value>
                 </create>
-                <read>NULL</read>
-                <update>NULL</update>
+                <read>
+                  <path>mods:dateIssued[@keyDate='yes']</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
                 <delete>NULL</delete>
               </actions>
             </properties>
@@ -1054,7 +895,7 @@
               <value>&lt;note displayLabel="Submitted Comment"&gt;%value%&lt;/note&gt;</value>
             </create>
             <read>
-              <path>mods:namePart[@displayLabel='Submitted Comment']</path>
+              <path>mods:note[@displayLabel="Submitted Comment"]</path>
               <context>parent</context>
             </read>
             <update>
@@ -1165,7 +1006,6 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <default_value>Master of Science</default_value>
                   <description>Use for Degree Name (e.g. Master of Science, Master of Arts, etc.)</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
@@ -1178,7 +1018,7 @@
                     <index key="Master of Music">Master of Music</index>
                     <index key="Master of Science">Master of Science</index>
                   </options>
-                  <required>FALSE</required>
+                  <required>TRUE</required>
                   <resizable>FALSE</resizable>
                   <title>Name</title>
                   <tree>TRUE</tree>
@@ -1245,7 +1085,6 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <default_value>Aerospace Engineering</default_value>
                   <description>Use to Specify Discipline (e.g. Architecture, Philosophy, Chemistry, etc.)</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
@@ -1335,7 +1174,7 @@
                     <index key="Veterinary Medicine">Veterinary Medicine</index>
                     <index key="Wildlife and Fisheries Science">Wildlife and Fisheries Science</index>
                   </options>
-                  <required>FALSE</required>
+                  <required>TRUE</required>
                   <resizable>FALSE</resizable>
                   <title>Discipline</title>
                   <tree>TRUE</tree>
@@ -1496,7 +1335,7 @@
               <value>&lt;note displayLabel="Keywords Submitted by Author"&gt;%value%&lt;/note&gt;</value>
             </create>
             <read>
-              <path>mods:note[@type='Keywords Submitted by Author']</path>
+              <path>mods:note[@displayLabel='Keywords Submitted by Author']</path>
               <context>parent</context>
             </read>
             <update>
