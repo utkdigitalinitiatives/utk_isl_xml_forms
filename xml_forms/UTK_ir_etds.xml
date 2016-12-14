@@ -1462,6 +1462,7 @@
           <required>FALSE</required>
           <resizable>FALSE</resizable>
           <title>Supplemental Items</title>
+          <description>&lt;strong&gt;Label and describe any additional files here. Uploads are on the next page.&lt;/strong&gt;</description>
           <tree>TRUE</tree>
         </properties>
         <children>
@@ -1504,7 +1505,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Use for Title of Supplemental File</description>
+                  <description>Use for title of supplemental file.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1540,7 +1541,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Use to Describe Your Supplemental File</description>
+                  <description>Use to describe supplemental file.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
