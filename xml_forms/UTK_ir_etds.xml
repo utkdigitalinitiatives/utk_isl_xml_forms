@@ -1462,7 +1462,7 @@
           <required>FALSE</required>
           <resizable>FALSE</resizable>
           <title>Supplemental Items</title>
-          <description>&lt;strong&gt;Label and describe any additional files here. Uploads are on the next page.&lt;/strong&gt;</description>
+          <description>&lt;strong&gt;Label and describe any additional files here. You will upload them on the next page.&lt;/strong&gt;</description>
           <tree>TRUE</tree>
         </properties>
         <children>
