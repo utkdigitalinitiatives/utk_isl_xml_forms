@@ -76,6 +76,7 @@
               <resizable>FALSE</resizable>
               <title>Title</title>
               <tree>TRUE</tree>
+              <description>Can be changed at any point between now and final submission.</description>
               <actions>
                 <create>
                   <path>self::node()</path>
@@ -140,13 +141,13 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>Use for First Name.</description>
+              <description>Use for first name and middle name or initial if necessary. Must match name in student records exactly.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
               <required>TRUE</required>
               <resizable>FALSE</resizable>
-              <title>Author First Name/Given Name</title>
+              <title>Author Given Name</title>
               <tree>TRUE</tree>
               <actions>
                 <create>
@@ -176,7 +177,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>Use for Last Name.</description>
+              <description>Use for last name. Must match name in student records exactly.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -417,7 +418,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg</description>
+                  <description>Enter name with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or “PhD”.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -564,7 +565,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg</description>
+                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or “PhD”.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -762,7 +763,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>Your graduation date. Choose May, August or December.</description>
+              <description>Select your month and year of graduation (regardless of when you submit or defend your thesis/dissertation). Choose May for spring graduation, August for summer graduation, or December for fall graduation.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -841,7 +842,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>The Abstract for Your Thesis or Dissertation</description>
+          <description>Enter the abstract for your thesis or dissertation. It cannot exceed 350 words.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -877,7 +878,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Add coments, e.g, Portions of this document were previously published in journal..."</description>
+          <description>Add comments, e.g., “Portions of this document were previously published in journal...". Text in this box will be made public with your thesis/dissertation, so this should not be used as a space to communicate with the thesis manager.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -1006,7 +1007,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Use for Degree Name (e.g. Master of Science, Master of Arts, etc.)</description>
+                  <description>Use for degree name (e.g., Master of Science, Master of Arts, etc.)</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1085,7 +1086,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Use to Specify Discipline (e.g. Architecture, Philosophy, Chemistry, etc.)</description>
+                  <description>Use to specify major (e.g., Architecture, Philosophy, Chemistry, etc.)</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1317,7 +1318,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Please enter up to 6 keywords or phrases, separated by commas, to help searchers find your thesis. If your thesis is about radiology, you may want to add terms such as health care, X-rays, etc.</description>
+          <description>Please enter up to 6 keywords or phrases, separated by commas, to help searchers find your thesis. If your thesis is about radiology, you may want to add terms such as health care, X-rays, etc. Keywords are optional but recommended.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
