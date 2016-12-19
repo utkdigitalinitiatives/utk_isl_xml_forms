@@ -76,6 +76,7 @@
               <resizable>FALSE</resizable>
               <title>Title</title>
               <tree>TRUE</tree>
+              <description>Can be changed at any point between now and final submission.</description>
               <actions>
                 <create>
                   <path>self::node()</path>
@@ -140,13 +141,13 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>Use for First Name.</description>
+              <description>Use for first name and middle name or initial if necessary. Must match name in student records exactly.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
               <required>TRUE</required>
               <resizable>FALSE</resizable>
-              <title>Author First Name/Given Name</title>
+              <title>Author Given Name</title>
               <tree>TRUE</tree>
               <actions>
                 <create>
@@ -176,7 +177,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>Use for Last Name.</description>
+              <description>Use for last name. Must match name in student records exactly.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -362,6 +363,391 @@
           </element>
         </children>
       </element>
+      <element name="originInfo">
+        <properties>
+          <type>fieldset</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <title>Origin Information</title>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>element</type>
+              <prefix>NULL</prefix>
+              <value>originInfo</value>
+            </create>
+            <read>
+              <path>mods:originInfo</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children>
+          <element name="dateIssued">
+            <properties>
+              <type>select</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <description>Select your month and year of graduation (regardless of when you submit or defend your thesis/dissertation). Choose May for spring graduation, August for summer graduation, or December for fall graduation.</description>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <options>
+                <index key="2016-12">December 2016</index>
+                <index key="2017-05">May 2017</index>
+                <index key="2017-08">August 2017</index>
+              </options>
+              <required>TRUE</required>
+              <resizable>FALSE</resizable>
+              <title>Date of Award</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;dateIssued keyDate="yes" authority="edtf"&gt;%value%&lt;/dateIssued&gt;</value>
+                </create>
+                <read>
+                  <path>mods:dateIssued[@keyDate='yes']</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
+      </element>
+      <element name="extension">
+        <properties>
+          <type>markup</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <title>Extension</title>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>element</type>
+              <prefix>NULL</prefix>
+              <value>extension</value>
+            </create>
+            <read>
+              <path>mods:extension</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children>
+          <element name="degree">
+            <properties>
+              <type>fieldset</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>Degree</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>etd</prefix>
+                  <value>etd:degree</value>
+                </create>
+                <read>
+                  <path>etd:degree</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children>
+              <element name="name">
+                <properties>
+                  <type>select</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <description>Use for degree name (e.g., Master of Science, Master of Arts, etc.)</description>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <options>
+                    <index key="Doctor of Philosophy">Doctor of Philosophy</index>
+                    <index key="Master of Architecture">Master of Architecture</index>
+                    <index key="Master of Arts">Master of Arts</index>
+                    <index key="Master of Landscape Architecture">Master of Landscape Architecture</index>
+                    <index key="Master of Music">Master of Music</index>
+                    <index key="Master of Science">Master of Science</index>
+                  </options>
+                  <required>TRUE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Name</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>etd</prefix>
+                      <value>etd:name</value>
+                    </create>
+                    <read>
+                      <path>etd:name</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+              <element name="grantor">
+                <properties>
+                  <type>hidden</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <required>FALSE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Grantor</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>xml</type>
+                      <prefix>NULL</prefix>
+                      <value>&lt;etd:grantor&gt;University of Tennessee&lt;/etd:grantor&gt;</value>
+                    </create>
+                    <read>
+                      <path>etd:grantor</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+              <element name="discipline">
+                <properties>
+                  <type>select</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <description>Use to specify major (e.g., Architecture, Philosophy, Chemistry, etc.)</description>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <options>
+                    <index key="Aerospace Engineering">Aerospace Engineering</index>
+                    <index key="Agricultural and Resource Economics">Agricultural and Resource Economics</index>
+                    <index key="Agricultural Leadership, Education and Communications">Agricultural Leadership, Education and Communications</index>
+                    <index key="Animal Science">Animal Science</index>
+                    <index key="Anthropology">Anthropology</index>
+                    <index key="Architecture">Architecture</index>
+                    <index key="Biochemistry and Cellular and Molecular Biology">Biochemistry and Cellular and Molecular Biology</index>
+                    <index key="Biomedical Engineering">Biomedical Engineering</index>
+                    <index key="Biosystems Engineering">Biosystems Engineering</index>
+                    <index key="Biosystems Engineering Technology">Biosystems Engineering Technology</index>
+                    <index key="Business Administration">Business Administration</index>
+                    <index key="Business Analytics">Business Analytics</index>
+                    <index key="Chemical Engineering">Chemical Engineering</index>
+                    <index key="Chemistry">Chemistry</index>
+                    <index key="Child and Family Studies">Child and Family Studies</index>
+                    <index key="Civil Engineering">Civil Engineering</index>
+                    <index key="College Student Personnel">College Student Personnel</index>
+                    <index key="Communication and Information">Communication and Information</index>
+                    <index key="Comparative and Experimental Medicine">Comparative and Experimental Medicine</index>
+                    <index key="Computer Engineering">Computer Engineering</index>
+                    <index key="Computer Science">Computer Science</index>
+                    <index key="Counseling">Counseling</index>
+                    <index key="Counselor Education">Counselor Education</index>
+                    <index key="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</index>
+                    <index key="Economics">Economics</index>
+                    <index key="Education ">Education </index>
+                    <index key="Educational Administration">Educational Administration</index>
+                    <index key="Educational Psychology">Educational Psychology</index>
+                    <index key="Educational Psychology and Research">Educational Psychology and Research</index>
+                    <index key="Electrical Engineering ">Electrical Engineering </index>
+                    <index key="Energy Science and Engineering">Energy Science and Engineering</index>
+                    <index key="Engineering Science">Engineering Science</index>
+                    <index key="English">English</index>
+                    <index key="Enomology, Plant Pathology and Nematology">Enomology, Plant Pathology and Nematology</index>
+                    <index key="Entomology and Plant Pathology">Entomology and Plant Pathology</index>
+                    <index key="Environmental and Soil Science">Environmental and Soil Science</index>
+                    <index key="Environmental Engineering">Environmental Engineering</index>
+                    <index key="Food Science and Technology">Food Science and Technology</index>
+                    <index key="Forestry">Forestry</index>
+                    <index key="French">French</index>
+                    <index key="Geography">Geography</index>
+                    <index key="Geology">Geology</index>
+                    <index key="German">German</index>
+                    <index key="Higher Education Administration">Higher Education Administration</index>
+                    <index key="History">History</index>
+                    <index key="Human Resource Management">Human Resource Management</index>
+                    <index key="Industrial Engineering">Industrial Engineering</index>
+                    <index key="Information Sciences">Information Sciences</index>
+                    <index key="Kinesiology">Kinesiology</index>
+                    <index key="Kinesiology and Sport Studies">Kinesiology and Sport Studies</index>
+                    <index key="Landscape Architecture">Landscape Architecture</index>
+                    <index key="Law">Law</index>
+                    <index key="Life Sciences">Life Sciences</index>
+                    <index key="Management Science">Management Science</index>
+                    <index key="Material Science and Engineering">Material Science and Engineering</index>
+                    <index key="Mathematics">Mathematics</index>
+                    <index key="Mechanical Engineering">Mechanical Engineering</index>
+                    <index key="Microbiology">Microbiology</index>
+                    <index key="Modern Foreign Languages">Modern Foreign Languages</index>
+                    <index key="Music">Music</index>
+                    <index key="Natural Resources">Natural Resources</index>
+                    <index key="Nuclear Engineering">Nuclear Engineering</index>
+                    <index key="Nursing">Nursing</index>
+                    <index key="Nutrition">Nutrition</index>
+                    <index key="Nutritional Sciences">Nutritional Sciences</index>
+                    <index key="Philosophy">Philosophy</index>
+                    <index key="Physics">Physics</index>
+                    <index key="Plant Sciences">Plant Sciences</index>
+                    <index key="Plant, Soil and Environmental Sciences">Plant, Soil and Environmental Sciences</index>
+                    <index key="Political Science">Political Science</index>
+                    <index key="Psychology">Psychology</index>
+                    <index key="Public Health">Public Health</index>
+                    <index key="Recreation and Sport Management">Recreation and Sport Management</index>
+                    <index key="Reliability and Maintainability Engineering">Reliability and Maintainability Engineering</index>
+                    <index key="Retail, Hospitality, and Tourism Management">Retail, Hospitality, and Tourism Management</index>
+                    <index key="School Psychology">School Psychology</index>
+                    <index key="Social Work">Social Work</index>
+                    <index key="Sociology">Sociology</index>
+                    <index key="Spanish">Spanish</index>
+                    <index key="Statistics">Statistics</index>
+                    <index key="Teacher Education">Teacher Education</index>
+                    <index key="Veterinary Medicine">Veterinary Medicine</index>
+                    <index key="Wildlife and Fisheries Science">Wildlife and Fisheries Science</index>
+                  </options>
+                  <required>TRUE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Discipline</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>etd</prefix>
+                      <value>etd:discipline</value>
+                    </create>
+                    <read>
+                      <path>etd:discipline</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+              <element name="level">
+                <properties>
+                  <type>select</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <options>
+                    <index key="Masters (pre-doctoral)">Masters Thesis</index>
+                    <index key="Doctoral (includes post-doctoral)">Doctoral Dissertation</index>
+                  </options>
+                  <required>TRUE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Degree Type</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>etd</prefix>
+                      <value>etd:level</value>
+                    </create>
+                    <read>
+                      <path>etd:level</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+            </children>
+          </element>
+        </children>
+      </element>
       <element name="advisor">
         <properties>
           <type>tabs</type>
@@ -417,7 +803,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg</description>
+                  <description>Enter name with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or “PhD”.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -564,7 +950,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg</description>
+                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or “PhD”.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -725,80 +1111,6 @@
         </properties>
         <children/>
       </element>
-      <element name="originInfo">
-        <properties>
-          <type>fieldset</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <title>Origin Information</title>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>element</type>
-              <prefix>NULL</prefix>
-              <value>originInfo</value>
-            </create>
-            <read>
-              <path>mods:originInfo</path>
-              <context>parent</context>
-            </read>
-            <update>NULL</update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children>
-          <element name="dateIssued">
-            <properties>
-              <type>select</type>
-              <access>TRUE</access>
-              <collapsed>FALSE</collapsed>
-              <collapsible>FALSE</collapsible>
-              <description>Your graduation date. Choose May, August or December.</description>
-              <disabled>FALSE</disabled>
-              <executes_submit_callback>FALSE</executes_submit_callback>
-              <multiple>FALSE</multiple>
-              <options>
-                <index key="2016-12">December 2016</index>
-                <index key="2017-05">May 2017</index>
-                <index key="2017-08">August 2017</index>
-              </options>
-              <required>TRUE</required>
-              <resizable>FALSE</resizable>
-              <title>Date of Award</title>
-              <tree>TRUE</tree>
-              <actions>
-                <create>
-                  <path>self::node()</path>
-                  <context>parent</context>
-                  <schema/>
-                  <type>xml</type>
-                  <prefix>NULL</prefix>
-                  <value>&lt;dateIssued keyDate="yes" authority="edtf"&gt;%value%&lt;/dateIssued&gt;</value>
-                </create>
-                <read>
-                  <path>mods:dateIssued[@keyDate='yes']</path>
-                  <context>parent</context>
-                </read>
-                <update>
-                  <path>self::node()</path>
-                  <context>self</context>
-                </update>
-                <delete>NULL</delete>
-              </actions>
-            </properties>
-            <children/>
-          </element>
-        </children>
-      </element>
       <element name="language">
         <properties>
           <type>hidden</type>
@@ -841,7 +1153,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>The Abstract for Your Thesis or Dissertation</description>
+          <description>Enter the abstract for your thesis or dissertation. It cannot exceed 350 words.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -877,7 +1189,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Add coments, e.g, Portions of this document were previously published in journal..."</description>
+          <description>Add comments, e.g., “Portions of this document were previously published in journal...". Text in this box will be made public with your thesis/dissertation, so this should not be used as a space to communicate with the thesis manager.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -931,317 +1243,6 @@
           </actions>
         </properties>
         <children/>
-      </element>
-      <element name="extension">
-        <properties>
-          <type>markup</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <title>Extension</title>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>element</type>
-              <prefix>NULL</prefix>
-              <value>extension</value>
-            </create>
-            <read>
-              <path>mods:extension</path>
-              <context>parent</context>
-            </read>
-            <update>
-              <path>self::node()</path>
-              <context>self</context>
-            </update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children>
-          <element name="degree">
-            <properties>
-              <type>fieldset</type>
-              <access>TRUE</access>
-              <collapsed>FALSE</collapsed>
-              <collapsible>FALSE</collapsible>
-              <disabled>FALSE</disabled>
-              <executes_submit_callback>FALSE</executes_submit_callback>
-              <multiple>FALSE</multiple>
-              <required>FALSE</required>
-              <resizable>FALSE</resizable>
-              <title>Degree</title>
-              <tree>TRUE</tree>
-              <actions>
-                <create>
-                  <path>self::node()</path>
-                  <context>parent</context>
-                  <schema/>
-                  <type>element</type>
-                  <prefix>etd</prefix>
-                  <value>etd:degree</value>
-                </create>
-                <read>
-                  <path>etd:degree</path>
-                  <context>parent</context>
-                </read>
-                <update>
-                  <path>self::node()</path>
-                  <context>self</context>
-                </update>
-                <delete>NULL</delete>
-              </actions>
-            </properties>
-            <children>
-              <element name="name">
-                <properties>
-                  <type>select</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <description>Use for Degree Name (e.g. Master of Science, Master of Arts, etc.)</description>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <options>
-                    <index key="Doctor of Philosophy">Doctor of Philosophy</index>
-                    <index key="Master of Architecture">Master of Architecture</index>
-                    <index key="Master of Arts">Master of Arts</index>
-                    <index key="Master of Landscape Architecture">Master of Landscape Architecture</index>
-                    <index key="Master of Music">Master of Music</index>
-                    <index key="Master of Science">Master of Science</index>
-                  </options>
-                  <required>TRUE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Name</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>element</type>
-                      <prefix>etd</prefix>
-                      <value>etd:name</value>
-                    </create>
-                    <read>
-                      <path>etd:name</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="grantor">
-                <properties>
-                  <type>hidden</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Grantor</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>xml</type>
-                      <prefix>NULL</prefix>
-                      <value>&lt;etd:grantor&gt;University of Tennessee&lt;/etd:grantor&gt;</value>
-                    </create>
-                    <read>
-                      <path>etd:grantor</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="discipline">
-                <properties>
-                  <type>select</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <description>Use to Specify Discipline (e.g. Architecture, Philosophy, Chemistry, etc.)</description>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <options>
-                    <index key="Aerospace Engineering">Aerospace Engineering</index>
-                    <index key="Agricultural and Resource Economics">Agricultural and Resource Economics</index>
-                    <index key="Agricultural Leadership, Education and Communications">Agricultural Leadership, Education and Communications</index>
-                    <index key="Animal Science">Animal Science</index>
-                    <index key="Anthropology">Anthropology</index>
-                    <index key="Architecture">Architecture</index>
-                    <index key="Biochemistry and Cellular and Molecular Biology">Biochemistry and Cellular and Molecular Biology</index>
-                    <index key="Biomedical Engineering">Biomedical Engineering</index>
-                    <index key="Biosystems Engineering">Biosystems Engineering</index>
-                    <index key="Biosystems Engineering Technology">Biosystems Engineering Technology</index>
-                    <index key="Business Administration">Business Administration</index>
-                    <index key="Business Analytics">Business Analytics</index>
-                    <index key="Chemical Engineering">Chemical Engineering</index>
-                    <index key="Chemistry">Chemistry</index>
-                    <index key="Child and Family Studies">Child and Family Studies</index>
-                    <index key="Civil Engineering">Civil Engineering</index>
-                    <index key="College Student Personnel">College Student Personnel</index>
-                    <index key="Communication and Information">Communication and Information</index>
-                    <index key="Comparative and Experimental Medicine">Comparative and Experimental Medicine</index>
-                    <index key="Computer Engineering">Computer Engineering</index>
-                    <index key="Computer Science">Computer Science</index>
-                    <index key="Counseling">Counseling</index>
-                    <index key="Counselor Education">Counselor Education</index>
-                    <index key="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</index>
-                    <index key="Economics">Economics</index>
-                    <index key="Education ">Education </index>
-                    <index key="Educational Administration">Educational Administration</index>
-                    <index key="Educational Psychology">Educational Psychology</index>
-                    <index key="Educational Psychology and Research">Educational Psychology and Research</index>
-                    <index key="Electrical Engineering ">Electrical Engineering </index>
-                    <index key="Energy Science and Engineering">Energy Science and Engineering</index>
-                    <index key="Engineering Science">Engineering Science</index>
-                    <index key="English">English</index>
-                    <index key="Enomology, Plant Pathology and Nematology">Enomology, Plant Pathology and Nematology</index>
-                    <index key="Entomology and Plant Pathology">Entomology and Plant Pathology</index>
-                    <index key="Environmental and Soil Science">Environmental and Soil Science</index>
-                    <index key="Environmental Engineering">Environmental Engineering</index>
-                    <index key="Food Science and Technology">Food Science and Technology</index>
-                    <index key="Forestry">Forestry</index>
-                    <index key="French">French</index>
-                    <index key="Geography">Geography</index>
-                    <index key="Geology">Geology</index>
-                    <index key="German">German</index>
-                    <index key="Higher Education Administration">Higher Education Administration</index>
-                    <index key="History">History</index>
-                    <index key="Human Resource Management">Human Resource Management</index>
-                    <index key="Industrial Engineering">Industrial Engineering</index>
-                    <index key="Information Sciences">Information Sciences</index>
-                    <index key="Kinesiology">Kinesiology</index>
-                    <index key="Kinesiology and Sport Studies">Kinesiology and Sport Studies</index>
-                    <index key="Landscape Architecture">Landscape Architecture</index>
-                    <index key="Law">Law</index>
-                    <index key="Life Sciences">Life Sciences</index>
-                    <index key="Management Science">Management Science</index>
-                    <index key="Material Science and Engineering">Material Science and Engineering</index>
-                    <index key="Mathematics">Mathematics</index>
-                    <index key="Mechanical Engineering">Mechanical Engineering</index>
-                    <index key="Microbiology">Microbiology</index>
-                    <index key="Modern Foreign Languages">Modern Foreign Languages</index>
-                    <index key="Music">Music</index>
-                    <index key="Natural Resources">Natural Resources</index>
-                    <index key="Nuclear Engineering">Nuclear Engineering</index>
-                    <index key="Nursing">Nursing</index>
-                    <index key="Nutrition">Nutrition</index>
-                    <index key="Nutritional Sciences">Nutritional Sciences</index>
-                    <index key="Philosophy">Philosophy</index>
-                    <index key="Physics">Physics</index>
-                    <index key="Plant Sciences">Plant Sciences</index>
-                    <index key="Plant, Soil and Environmental Sciences">Plant, Soil and Environmental Sciences</index>
-                    <index key="Political Science">Political Science</index>
-                    <index key="Psychology">Psychology</index>
-                    <index key="Public Health">Public Health</index>
-                    <index key="Recreation and Sport Management">Recreation and Sport Management</index>
-                    <index key="Reliability and Maintainability Engineering">Reliability and Maintainability Engineering</index>
-                    <index key="Retail, Hospitality, and Tourism Management">Retail, Hospitality, and Tourism Management</index>
-                    <index key="School Psychology">School Psychology</index>
-                    <index key="Social Work">Social Work</index>
-                    <index key="Sociology">Sociology</index>
-                    <index key="Spanish">Spanish</index>
-                    <index key="Statistics">Statistics</index>
-                    <index key="Teacher Education">Teacher Education</index>
-                    <index key="Veterinary Medicine">Veterinary Medicine</index>
-                    <index key="Wildlife and Fisheries Science">Wildlife and Fisheries Science</index>
-                  </options>
-                  <required>TRUE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Discipline</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>element</type>
-                      <prefix>etd</prefix>
-                      <value>etd:discipline</value>
-                    </create>
-                    <read>
-                      <path>etd:discipline</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="level">
-                <properties>
-                  <type>select</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <options>
-                    <index key="Masters (pre-doctoral)">Masters Thesis</index>
-                    <index key="Doctoral (includes post-doctoral)">Doctoral Dissertation</index>
-                  </options>
-                  <required>TRUE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Degree Type</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>element</type>
-                      <prefix>etd</prefix>
-                      <value>etd:level</value>
-                    </create>
-                    <read>
-                      <path>etd:level</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-            </children>
-          </element>
-        </children>
       </element>
       <element name="relatedItemSeries">
         <properties>
@@ -1317,7 +1318,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Please enter up to 6 keywords or phrases, separated by commas, to help searchers find your thesis. If your thesis is about radiology, you may want to add terms such as health care, X-rays, etc.</description>
+          <description>Please enter up to 6 keywords or phrases, separated by commas, to help searchers find your thesis. If your thesis is about radiology, you may want to add terms such as health care, X-rays, etc. Keywords are optional but recommended.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -1462,6 +1463,7 @@
           <required>FALSE</required>
           <resizable>FALSE</resizable>
           <title>Supplemental Items</title>
+          <description>&lt;strong&gt;Label and describe any additional files here. You will upload them on the next page.&lt;/strong&gt;</description>
           <tree>TRUE</tree>
         </properties>
         <children>
@@ -1504,7 +1506,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Use for Title of Supplemental File</description>
+                  <description>Use for title of supplemental file.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1540,7 +1542,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Use to Describe Your Supplemental File</description>
+                  <description>Use to describe supplemental file.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
