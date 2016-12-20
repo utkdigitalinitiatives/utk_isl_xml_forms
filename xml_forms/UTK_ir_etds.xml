@@ -420,7 +420,7 @@
                   <schema/>
                   <type>xml</type>
                   <prefix>NULL</prefix>
-                  <value>&lt;dateIssued keyDate="yes" authority="edtf"&gt;%value%&lt;/dateIssued&gt;</value>
+                  <value>&lt;dateIssued keyDate="yes" encoding="edtf"&gt;%value%&lt;/dateIssued&gt;</value>
                 </create>
                 <read>
                   <path>mods:dateIssued[@keyDate='yes']</path>
