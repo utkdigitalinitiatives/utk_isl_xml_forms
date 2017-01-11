@@ -583,6 +583,45 @@
               </actions>
             </properties>
             <children>
+              <element name="level">
+                <properties>
+                  <type>select</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <options>
+                    <index key="Masters (pre-doctoral)">Masters Thesis</index>
+                    <index key="Doctoral (includes post-doctoral)">Doctoral Dissertation</index>
+                  </options>
+                  <required>TRUE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Degree Type</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>etd</prefix>
+                      <value>etd:level</value>
+                    </create>
+                    <read>
+                      <path>etd:level</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
               <element name="name">
                 <properties>
                   <type>select</type>
@@ -627,41 +666,6 @@
                 </properties>
                 <children/>
               </element>
-              <element name="grantor">
-                <properties>
-                  <type>hidden</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Grantor</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>xml</type>
-                      <prefix>NULL</prefix>
-                      <value>&lt;etd:grantor&gt;University of Tennessee&lt;/etd:grantor&gt;</value>
-                    </create>
-                    <read>
-                      <path>etd:grantor</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
               <element name="discipline">
                 <properties>
                   <type>select</type>
@@ -677,8 +681,8 @@
                     <index key="Agricultural and Resource Economics">Agricultural and Resource Economics</index>
                     <index key="Agricultural Leadership, Education and Communications">Agricultural Leadership, Education and Communications</index>
                     <index key="Animal Science">Animal Science</index>
-                    <index key="Anthropology">Anthropology</index>
-                    <index key="Architecture">Architecture</index>
+                    <Anthropology>Anthropology</Anthropology>
+                    <Architecture>Architecture</Architecture>
                     <index key="Biochemistry and Cellular and Molecular Biology">Biochemistry and Cellular and Molecular Biology</index>
                     <index key="Biomedical Engineering">Biomedical Engineering</index>
                     <index key="Biosystems Engineering">Biosystems Engineering</index>
@@ -686,7 +690,7 @@
                     <index key="Business Administration">Business Administration</index>
                     <index key="Business Analytics">Business Analytics</index>
                     <index key="Chemical Engineering">Chemical Engineering</index>
-                    <index key="Chemistry">Chemistry</index>
+                    <Chemistry>Chemistry</Chemistry>
                     <index key="Child and Family Studies">Child and Family Studies</index>
                     <index key="Civil Engineering">Civil Engineering</index>
                     <index key="College Student Personnel">College Student Personnel</index>
@@ -694,10 +698,10 @@
                     <index key="Comparative and Experimental Medicine">Comparative and Experimental Medicine</index>
                     <index key="Computer Engineering">Computer Engineering</index>
                     <index key="Computer Science">Computer Science</index>
-                    <index key="Counseling">Counseling</index>
+                    <Counseling>Counseling</Counseling>
                     <index key="Counselor Education">Counselor Education</index>
                     <index key="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</index>
-                    <index key="Economics">Economics</index>
+                    <Economics>Economics</Economics>
                     <index key="Education ">Education </index>
                     <index key="Educational Administration">Educational Administration</index>
                     <index key="Educational Psychology">Educational Psychology</index>
@@ -705,54 +709,54 @@
                     <index key="Electrical Engineering ">Electrical Engineering </index>
                     <index key="Energy Science and Engineering">Energy Science and Engineering</index>
                     <index key="Engineering Science">Engineering Science</index>
-                    <index key="English">English</index>
+                    <English>English</English>
                     <index key="Enomology, Plant Pathology and Nematology">Enomology, Plant Pathology and Nematology</index>
                     <index key="Entomology and Plant Pathology">Entomology and Plant Pathology</index>
                     <index key="Environmental and Soil Science">Environmental and Soil Science</index>
                     <index key="Environmental Engineering">Environmental Engineering</index>
                     <index key="Food Science and Technology">Food Science and Technology</index>
-                    <index key="Forestry">Forestry</index>
-                    <index key="French">French</index>
-                    <index key="Geography">Geography</index>
-                    <index key="Geology">Geology</index>
-                    <index key="German">German</index>
+                    <Forestry>Forestry</Forestry>
+                    <French>French</French>
+                    <Geography>Geography</Geography>
+                    <Geology>Geology</Geology>
+                    <German>German</German>
                     <index key="Higher Education Administration">Higher Education Administration</index>
-                    <index key="History">History</index>
+                    <History>History</History>
                     <index key="Human Resource Management">Human Resource Management</index>
                     <index key="Industrial Engineering">Industrial Engineering</index>
                     <index key="Information Sciences">Information Sciences</index>
-                    <index key="Kinesiology">Kinesiology</index>
+                    <Kinesiology>Kinesiology</Kinesiology>
                     <index key="Kinesiology and Sport Studies">Kinesiology and Sport Studies</index>
                     <index key="Landscape Architecture">Landscape Architecture</index>
-                    <index key="Law">Law</index>
+                    <Law>Law</Law>
                     <index key="Life Sciences">Life Sciences</index>
                     <index key="Management Science">Management Science</index>
                     <index key="Material Science and Engineering">Material Science and Engineering</index>
-                    <index key="Mathematics">Mathematics</index>
+                    <Mathematics>Mathematics</Mathematics>
                     <index key="Mechanical Engineering">Mechanical Engineering</index>
-                    <index key="Microbiology">Microbiology</index>
+                    <Microbiology>Microbiology</Microbiology>
                     <index key="Modern Foreign Languages">Modern Foreign Languages</index>
-                    <index key="Music">Music</index>
+                    <Music>Music</Music>
                     <index key="Natural Resources">Natural Resources</index>
                     <index key="Nuclear Engineering">Nuclear Engineering</index>
-                    <index key="Nursing">Nursing</index>
-                    <index key="Nutrition">Nutrition</index>
+                    <Nursing>Nursing</Nursing>
+                    <Nutrition>Nutrition</Nutrition>
                     <index key="Nutritional Sciences">Nutritional Sciences</index>
-                    <index key="Philosophy">Philosophy</index>
-                    <index key="Physics">Physics</index>
+                    <Philosophy>Philosophy</Philosophy>
+                    <Physics>Physics</Physics>
                     <index key="Plant Sciences">Plant Sciences</index>
                     <index key="Plant, Soil and Environmental Sciences">Plant, Soil and Environmental Sciences</index>
                     <index key="Political Science">Political Science</index>
-                    <index key="Psychology">Psychology</index>
+                    <Psychology>Psychology</Psychology>
                     <index key="Public Health">Public Health</index>
                     <index key="Recreation and Sport Management">Recreation and Sport Management</index>
                     <index key="Reliability and Maintainability Engineering">Reliability and Maintainability Engineering</index>
                     <index key="Retail, Hospitality, and Tourism Management">Retail, Hospitality, and Tourism Management</index>
                     <index key="School Psychology">School Psychology</index>
                     <index key="Social Work">Social Work</index>
-                    <index key="Sociology">Sociology</index>
-                    <index key="Spanish">Spanish</index>
-                    <index key="Statistics">Statistics</index>
+                    <Sociology>Sociology</Sociology>
+                    <Spanish>Spanish</Spanish>
+                    <Statistics>Statistics</Statistics>
                     <index key="Teacher Education">Teacher Education</index>
                     <index key="Veterinary Medicine">Veterinary Medicine</index>
                     <index key="Wildlife and Fisheries Science">Wildlife and Fisheries Science</index>
@@ -783,34 +787,30 @@
                 </properties>
                 <children/>
               </element>
-              <element name="level">
+              <element name="grantor">
                 <properties>
-                  <type>select</type>
+                  <type>hidden</type>
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
-                  <options>
-                    <index key="Masters (pre-doctoral)">Masters Thesis</index>
-                    <index key="Doctoral (includes post-doctoral)">Doctoral Dissertation</index>
-                  </options>
-                  <required>TRUE</required>
+                  <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Degree Type</title>
+                  <title>Grantor</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
                       <path>self::node()</path>
                       <context>parent</context>
                       <schema/>
-                      <type>element</type>
-                      <prefix>etd</prefix>
-                      <value>etd:level</value>
+                      <type>xml</type>
+                      <prefix>NULL</prefix>
+                      <value>&lt;etd:grantor&gt;University of Tennessee&lt;/etd:grantor&gt;</value>
                     </create>
                     <read>
-                      <path>etd:level</path>
+                      <path>etd:grantor</path>
                       <context>parent</context>
                     </read>
                     <update>
