@@ -207,6 +207,42 @@
             </properties>
             <children/>
           </element>
+          <element name="namePartTermofAddress">
+            <properties>
+              <type>textfield</type>
+              <access>TRUE</access>
+              <collapsed>TRUE</collapsed>
+              <collapsible>TRUE</collapsible>
+              <description>Enter any terms of address that are apart of your student record, such as Jr. or III. Do not include honorifics or titles such as "Dr." or &#x201C;PhD&#x201D;.</description>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>Author Suffix</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;namePart type='termOfAddress'&gt;%value%&lt;/namePart&gt;</value>
+                </create>
+                <read>
+                  <path>mods:namePart[@type='termOfAddress']</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
           <element name="role">
             <properties>
               <type>hidden</type>
@@ -1443,12 +1479,13 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
+                  <default_value>Graduate Theses and Dissertations</default_value>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>tile</title>
+                  <title>title</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
