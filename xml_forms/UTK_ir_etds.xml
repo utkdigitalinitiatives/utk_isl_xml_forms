@@ -681,8 +681,8 @@
                     <index key="Agricultural and Resource Economics">Agricultural and Resource Economics</index>
                     <index key="Agricultural Leadership, Education and Communications">Agricultural Leadership, Education and Communications</index>
                     <index key="Animal Science">Animal Science</index>
-                    <Anthropology>Anthropology</Anthropology>
-                    <Architecture>Architecture</Architecture>
+                    <index key="Anthropology">Anthropology</index>
+                    <index key="Architecture">Architecture</index>
                     <index key="Biochemistry and Cellular and Molecular Biology">Biochemistry and Cellular and Molecular Biology</index>
                     <index key="Biomedical Engineering">Biomedical Engineering</index>
                     <index key="Biosystems Engineering">Biosystems Engineering</index>
@@ -690,7 +690,7 @@
                     <index key="Business Administration">Business Administration</index>
                     <index key="Business Analytics">Business Analytics</index>
                     <index key="Chemical Engineering">Chemical Engineering</index>
-                    <Chemistry>Chemistry</Chemistry>
+                    <index key="Chemistry">Chemistry</index>
                     <index key="Child and Family Studies">Child and Family Studies</index>
                     <index key="Civil Engineering">Civil Engineering</index>
                     <index key="College Student Personnel">College Student Personnel</index>
@@ -698,10 +698,10 @@
                     <index key="Comparative and Experimental Medicine">Comparative and Experimental Medicine</index>
                     <index key="Computer Engineering">Computer Engineering</index>
                     <index key="Computer Science">Computer Science</index>
-                    <Counseling>Counseling</Counseling>
+                    <index key="Counseling">Counseling</index>
                     <index key="Counselor Education">Counselor Education</index>
                     <index key="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</index>
-                    <Economics>Economics</Economics>
+                    <index key="Economics">Economics</index>
                     <index key="Education ">Education </index>
                     <index key="Educational Administration">Educational Administration</index>
                     <index key="Educational Psychology">Educational Psychology</index>
@@ -709,54 +709,54 @@
                     <index key="Electrical Engineering ">Electrical Engineering </index>
                     <index key="Energy Science and Engineering">Energy Science and Engineering</index>
                     <index key="Engineering Science">Engineering Science</index>
-                    <English>English</English>
+                    <index key="English">English</index>
                     <index key="Enomology, Plant Pathology and Nematology">Enomology, Plant Pathology and Nematology</index>
                     <index key="Entomology and Plant Pathology">Entomology and Plant Pathology</index>
                     <index key="Environmental and Soil Science">Environmental and Soil Science</index>
                     <index key="Environmental Engineering">Environmental Engineering</index>
                     <index key="Food Science and Technology">Food Science and Technology</index>
-                    <Forestry>Forestry</Forestry>
-                    <French>French</French>
-                    <Geography>Geography</Geography>
-                    <Geology>Geology</Geology>
-                    <German>German</German>
+                    <index key="Forestry">Forestry</index>
+                    <index key="French">French</index>
+                    <index key="Geography">Geography</index>
+                    <index key="Geology">Geology</index>
+                    <index key="German">German</index>
                     <index key="Higher Education Administration">Higher Education Administration</index>
-                    <History>History</History>
+                    <index key="History">History</index>
                     <index key="Human Resource Management">Human Resource Management</index>
                     <index key="Industrial Engineering">Industrial Engineering</index>
                     <index key="Information Sciences">Information Sciences</index>
-                    <Kinesiology>Kinesiology</Kinesiology>
+                    <index key="Kinesiology">Kinesiology</index>
                     <index key="Kinesiology and Sport Studies">Kinesiology and Sport Studies</index>
                     <index key="Landscape Architecture">Landscape Architecture</index>
-                    <Law>Law</Law>
+                    <index key="Law">Law</index>
                     <index key="Life Sciences">Life Sciences</index>
                     <index key="Management Science">Management Science</index>
                     <index key="Material Science and Engineering">Material Science and Engineering</index>
-                    <Mathematics>Mathematics</Mathematics>
+                    <index key="Mathematics">Mathematics</index>
                     <index key="Mechanical Engineering">Mechanical Engineering</index>
-                    <Microbiology>Microbiology</Microbiology>
+                    <index key="Microbiology">Microbiology</index>
                     <index key="Modern Foreign Languages">Modern Foreign Languages</index>
-                    <Music>Music</Music>
+                    <index key="Music">Music</index>
                     <index key="Natural Resources">Natural Resources</index>
                     <index key="Nuclear Engineering">Nuclear Engineering</index>
-                    <Nursing>Nursing</Nursing>
-                    <Nutrition>Nutrition</Nutrition>
+                    <index key="Nursing">Nursing</index>
+                    <index key="Nutrition">Nutrition</index>
                     <index key="Nutritional Sciences">Nutritional Sciences</index>
-                    <Philosophy>Philosophy</Philosophy>
-                    <Physics>Physics</Physics>
+                    <index key="Philosophy">Philosophy</index>
+                    <index key="Physics">Physics</index>
                     <index key="Plant Sciences">Plant Sciences</index>
                     <index key="Plant, Soil and Environmental Sciences">Plant, Soil and Environmental Sciences</index>
                     <index key="Political Science">Political Science</index>
-                    <Psychology>Psychology</Psychology>
+                    <index key="Psychology">Psychology</index>
                     <index key="Public Health">Public Health</index>
                     <index key="Recreation and Sport Management">Recreation and Sport Management</index>
                     <index key="Reliability and Maintainability Engineering">Reliability and Maintainability Engineering</index>
                     <index key="Retail, Hospitality, and Tourism Management">Retail, Hospitality, and Tourism Management</index>
                     <index key="School Psychology">School Psychology</index>
                     <index key="Social Work">Social Work</index>
-                    <Sociology>Sociology</Sociology>
-                    <Spanish>Spanish</Spanish>
-                    <Statistics>Statistics</Statistics>
+                    <index key="Sociology">Sociology</index>
+                    <index key="Spanish">Spanish</index>
+                    <index key="Statistics">Statistics</index>
                     <index key="Teacher Education">Teacher Education</index>
                     <index key="Veterinary Medicine">Veterinary Medicine</index>
                     <index key="Wildlife and Fisheries Science">Wildlife and Fisheries Science</index>
