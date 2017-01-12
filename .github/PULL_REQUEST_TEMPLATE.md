@@ -14,11 +14,15 @@ Example:
 
 # How should this be tested?
 
-A description of what steps someone could take to:
-* Reproduce the problem you are fixing (if applicable)
-* Test that the Pull Request does what is intended.
-* Please be as detailed as possible.
-* Good testing instructions help get your PR completed faster.
+1. Option 1:
+	* Import the Form
+	* Associate it with a content model
+	* Apply any additional / related transforms
+	* Create a new record and select the newly associated form
+	* Edit that record to see if the form still behaves correctly
+2. Option 2:
+	* vagrant destroy
+	* vagrant up
 
 
 # Additional Notes:
