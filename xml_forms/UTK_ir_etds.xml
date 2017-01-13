@@ -207,7 +207,7 @@
             </properties>
             <children/>
           </element>
-          <element name="namePartTermofAddress">
+          <element name="namePartTermsofAddress">
             <properties>
               <type>textfield</type>
               <access>TRUE</access>
@@ -228,10 +228,10 @@
                   <schema/>
                   <type>xml</type>
                   <prefix>NULL</prefix>
-                  <value>&lt;namePart type='termOfAddress'&gt;%value%&lt;/namePart&gt;</value>
+                  <value>&lt;namePart type='termsOfAddress'&gt;%value%&lt;/namePart&gt;</value>
                 </create>
                 <read>
-                  <path>mods:namePart[@type='termOfAddress']</path>
+                  <path>mods:namePart[@type='termsOfAddress']</path>
                   <context>parent</context>
                 </read>
                 <update>
