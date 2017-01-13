@@ -69,6 +69,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
+              <description>Can be changed at any point between now and final submission.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -76,7 +77,6 @@
               <resizable>FALSE</resizable>
               <title>Title</title>
               <tree>TRUE</tree>
-              <description>Can be changed at any point between now and final submission.</description>
               <actions>
                 <create>
                   <path>self::node()</path>
@@ -207,6 +207,41 @@
             </properties>
             <children/>
           </element>
+          <element name="namePartTermsofAddress">
+            <properties>
+              <type>textfield</type>
+              <access>TRUE</access>
+              <collapsed>TRUE</collapsed>
+              <collapsible>TRUE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>Author Suffix</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;namePart type='termsOfAddress'&gt;%value%&lt;/namePart&gt;</value>
+                </create>
+                <read>
+                  <path>mods:namePart[@type='termsOfAddress']</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
           <element name="role">
             <properties>
               <type>hidden</type>
@@ -225,16 +260,58 @@
                   <path>self::node()</path>
                   <context>parent</context>
                   <schema/>
-                  <type>xml</type>
+                  <type>element</type>
                   <prefix>NULL</prefix>
-                  <value>&lt;role&gt;&lt;roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/aut"&gt;author&lt;/roleTerm&gt;&lt;/role&gt;</value>
+                  <value>role</value>
                 </create>
-                <read>NULL</read>
-                <update>NULL</update>
+                <read>
+                  <path>mods:role</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
                 <delete>NULL</delete>
               </actions>
             </properties>
-            <children/>
+            <children>
+              <element name="roleTerm">
+                <properties>
+                  <type>hidden</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <default_value>author</default_value>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <required>FALSE</required>
+                  <resizable>FALSE</resizable>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>xml</type>
+                      <prefix>NULL</prefix>
+                      <value>&lt;roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/aut"&gt;%value%&lt;/roleTerm&gt;</value>
+                    </create>
+                    <read>
+                      <path>mods:roleTerm[@valueURI="http://id.loc.gov/vocabulary/relators/aut"]</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+            </children>
           </element>
           <element name="nameType">
             <properties>
@@ -408,6 +485,15 @@
                 <index key="2016-12">December 2016</index>
                 <index key="2017-05">May 2017</index>
                 <index key="2017-08">August 2017</index>
+                <index key="2017-12">December 2017</index>
+                <index key="2018-05">May 2018</index>
+                <index key="2018-08">August 2018</index>
+                <index key="2018-12">December 2018</index>
+                <index key="2019-05">May 2019</index>
+                <index key="2019-08">August 2019</index>
+                <index key="2020-12">December 2020</index>
+                <index key="2020-05">May 2020</index>
+                <index key="2020-08">August 2020</index>
               </options>
               <required>TRUE</required>
               <resizable>FALSE</resizable>
@@ -505,6 +591,45 @@
               </actions>
             </properties>
             <children>
+              <element name="level">
+                <properties>
+                  <type>select</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <options>
+                    <index key="Masters (pre-doctoral)">Masters Thesis</index>
+                    <index key="Doctoral (includes post-doctoral)">Doctoral Dissertation</index>
+                  </options>
+                  <required>TRUE</required>
+                  <resizable>FALSE</resizable>
+                  <title>Degree Type</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>etd</prefix>
+                      <value>etd:level</value>
+                    </create>
+                    <read>
+                      <path>etd:level</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
               <element name="name">
                 <properties>
                   <type>select</type>
@@ -538,41 +663,6 @@
                     </create>
                     <read>
                       <path>etd:name</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
-              <element name="grantor">
-                <properties>
-                  <type>hidden</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Grantor</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>xml</type>
-                      <prefix>NULL</prefix>
-                      <value>&lt;etd:grantor&gt;University of Tennessee&lt;/etd:grantor&gt;</value>
-                    </create>
-                    <read>
-                      <path>etd:grantor</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -705,34 +795,30 @@
                 </properties>
                 <children/>
               </element>
-              <element name="level">
+              <element name="grantor">
                 <properties>
-                  <type>select</type>
+                  <type>hidden</type>
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
-                  <options>
-                    <index key="Masters (pre-doctoral)">Masters Thesis</index>
-                    <index key="Doctoral (includes post-doctoral)">Doctoral Dissertation</index>
-                  </options>
-                  <required>TRUE</required>
+                  <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Degree Type</title>
+                  <title>Grantor</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
                       <path>self::node()</path>
                       <context>parent</context>
                       <schema/>
-                      <type>element</type>
-                      <prefix>etd</prefix>
-                      <value>etd:level</value>
+                      <type>xml</type>
+                      <prefix>NULL</prefix>
+                      <value>&lt;etd:grantor&gt;University of Tennessee&lt;/etd:grantor&gt;</value>
                     </create>
                     <read>
-                      <path>etd:level</path>
+                      <path>etd:grantor</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -803,7 +889,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Enter name with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or “PhD”.</description>
+                  <description>Enter name with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or &#x201C;PhD&#x201D;.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -881,16 +967,57 @@
                       <path>self::node()</path>
                       <context>parent</context>
                       <schema/>
-                      <type>xml</type>
+                      <type>element</type>
                       <prefix>NULL</prefix>
-                      <value>&lt;role&gt;&lt;roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/ths"&gt;Thesis advisor&lt;/roleTerm&gt;&lt;/role&gt;</value>
+                      <value>role</value>
                     </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
+                    <read>
+                      <path>mods:role</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
                     <delete>NULL</delete>
                   </actions>
                 </properties>
-                <children/>
+                <children>
+                  <element name="advisorRoleTerm">
+                    <properties>
+                      <type>hidden</type>
+                      <access>TRUE</access>
+                      <collapsed>FALSE</collapsed>
+                      <collapsible>FALSE</collapsible>
+                      <disabled>FALSE</disabled>
+                      <executes_submit_callback>FALSE</executes_submit_callback>
+                      <multiple>FALSE</multiple>
+                      <required>FALSE</required>
+                      <resizable>FALSE</resizable>
+                      <tree>TRUE</tree>
+                      <actions>
+                        <create>
+                          <path>self::node()</path>
+                          <context>parent</context>
+                          <schema/>
+                          <type>xml</type>
+                          <prefix>NULL</prefix>
+                          <value>&lt;roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/ths"&gt;Thesis advisor&lt;/roleTerm&gt;</value>
+                        </create>
+                        <read>
+                          <path>mods:roleTerm[@valueURI="http://id.loc.gov/vocabulary/relators/ths"]</path>
+                          <context>parent</context>
+                        </read>
+                        <update>
+                          <path>self::node()</path>
+                          <context>self</context>
+                        </update>
+                        <delete>NULL</delete>
+                      </actions>
+                    </properties>
+                    <children/>
+                  </element>
+                </children>
               </element>
             </children>
           </element>
@@ -950,7 +1077,7 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or “PhD”.</description>
+                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or &#x201C;PhD&#x201D;.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
@@ -1020,22 +1147,64 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
+                  <title>role</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
                       <path>self::node()</path>
                       <context>parent</context>
                       <schema/>
-                      <type>xml</type>
+                      <type>element</type>
                       <prefix>NULL</prefix>
-                      <value>&lt;role&gt;&lt;roleTerm type="text"&gt;Committee member&lt;/roleTerm&gt;&lt;/role&gt;</value>
+                      <value>role</value>
                     </create>
-                    <read>NULL</read>
-                    <update>NULL</update>
+                    <read>
+                      <path>mods:role</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
                     <delete>NULL</delete>
                   </actions>
                 </properties>
-                <children/>
+                <children>
+                  <element name="CommittieeRoleTerm">
+                    <properties>
+                      <type>hidden</type>
+                      <access>TRUE</access>
+                      <collapsed>FALSE</collapsed>
+                      <collapsible>FALSE</collapsible>
+                      <disabled>FALSE</disabled>
+                      <executes_submit_callback>FALSE</executes_submit_callback>
+                      <multiple>FALSE</multiple>
+                      <required>FALSE</required>
+                      <resizable>FALSE</resizable>
+                      <tree>TRUE</tree>
+                      <actions>
+                        <create>
+                          <path>self::node()</path>
+                          <context>parent</context>
+                          <schema/>
+                          <type>xml</type>
+                          <prefix>NULL</prefix>
+                          <value>&lt;roleTerm type="text"&gt;Committee member&lt;/roleTerm&gt;</value>
+                        </create>
+                        <read>
+                          <path>mods:roleTerm[@type="text"]</path>
+                          <context>parent</context>
+                        </read>
+                        <update>
+                          <path>self::node()</path>
+                          <context>self</context>
+                        </update>
+                        <delete>NULL</delete>
+                      </actions>
+                    </properties>
+                    <children/>
+                  </element>
+                </children>
               </element>
             </children>
           </element>
@@ -1189,7 +1358,7 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>Add comments, e.g., “Portions of this document were previously published in journal...". Text in this box will be made public with your thesis/dissertation, so this should not be used as a space to communicate with the thesis manager.</description>
+          <description>Add comments, e.g., &#x201C;Portions of this document were previously published in journal...". Text in this box will be made public with your thesis/dissertation, so this should not be used as a space to communicate with the thesis manager.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -1261,20 +1430,23 @@
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;relatedItem type="series"&gt;&lt;/relatedItem&gt;</value>
+              <value>relatedItem</value>
             </create>
             <read>
               <path>mods:relatedItem[@type='series']</path>
               <context>parent</context>
             </read>
-            <update>NULL</update>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
         <children>
-          <element name="Series">
+          <element name="SeriesTitle">
             <properties>
               <type>hidden</type>
               <access>TRUE</access>
@@ -1293,18 +1465,84 @@
                   <path>self::node()</path>
                   <context>parent</context>
                   <schema/>
-                  <type>xml</type>
+                  <type>element</type>
                   <prefix>NULL</prefix>
-                  <value>&lt;titleInfo&gt;&lt;title&gt;Masters Theses&lt;/title&gt;&lt;/titleInfo&gt;</value>
+                  <value>titleInfo</value>
                 </create>
                 <read>
-                  <path>mods:titleInfo/title</path>
+                  <path>mods:titleInfo</path>
                   <context>parent</context>
                 </read>
                 <update>
                   <path>self::node()</path>
                   <context>self</context>
                 </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children>
+              <element name="title">
+                <properties>
+                  <type>hidden</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <default_value>Graduate Theses and Dissertations</default_value>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <required>FALSE</required>
+                  <resizable>FALSE</resizable>
+                  <title>title</title>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>xml</type>
+                      <prefix>NULL</prefix>
+                      <value>&lt;title&gt;%value%&lt;/title&gt;</value>
+                    </create>
+                    <read>
+                      <path>mods:title</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+            </children>
+          </element>
+          <element name="type">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>series</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>attribute</type>
+                  <prefix>NULL</prefix>
+                  <value>type</value>
+                </create>
+                <read>NULL</read>
+                <update>NULL</update>
                 <delete>NULL</delete>
               </actions>
             </properties>
@@ -1348,108 +1586,6 @@
         </properties>
         <children/>
       </element>
-      <element name="recordInfo">
-        <properties>
-          <type>markup</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>element</type>
-              <prefix>NULL</prefix>
-              <value>recordInfo</value>
-            </create>
-            <read>
-              <path>mods:titleInfo</path>
-              <context>parent</context>
-            </read>
-            <update>NULL</update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children>
-          <element name="recordCreationDate">
-            <properties>
-              <type>hidden</type>
-              <access>TRUE</access>
-              <collapsed>FALSE</collapsed>
-              <collapsible>FALSE</collapsible>
-              <disabled>FALSE</disabled>
-              <executes_submit_callback>FALSE</executes_submit_callback>
-              <multiple>FALSE</multiple>
-              <required>FALSE</required>
-              <resizable>FALSE</resizable>
-              <title>Creation Date</title>
-              <tree>TRUE</tree>
-              <actions>
-                <create>
-                  <path>self::node()</path>
-                  <context>parent</context>
-                  <schema/>
-                  <type>xml</type>
-                  <prefix>NULL</prefix>
-                  <value>&lt;recordCreationDate encoding="w3cdtf"&gt;%value%&lt;/recordCreationDate&gt;</value>
-                </create>
-                <read>
-                  <path>mods:recordCreationDate[@type='w3cdtf']</path>
-                  <context>parent</context>
-                </read>
-                <update>
-                  <path>self::node()</path>
-                  <context>self</context>
-                </update>
-                <delete>NULL</delete>
-              </actions>
-            </properties>
-            <children/>
-          </element>
-          <element name="recordChangeDate">
-            <properties>
-              <type>hidden</type>
-              <access>TRUE</access>
-              <collapsed>FALSE</collapsed>
-              <collapsible>FALSE</collapsible>
-              <disabled>FALSE</disabled>
-              <executes_submit_callback>FALSE</executes_submit_callback>
-              <multiple>FALSE</multiple>
-              <required>FALSE</required>
-              <resizable>FALSE</resizable>
-              <title>recordChangeDate</title>
-              <tree>TRUE</tree>
-              <actions>
-                <create>
-                  <path>self::node()</path>
-                  <context>parent</context>
-                  <schema/>
-                  <type>xml</type>
-                  <prefix>NULL</prefix>
-                  <value>&lt;recordChangeDate keyDate="yes"&gt;%value%&lt;/recordChangeDate&gt;</value>
-                </create>
-                <read>
-                  <path>mods:recordChangeDate[@keyDate='yes']</path>
-                  <context>parent</context>
-                </read>
-                <update>
-                  <path>self::node()</path>
-                  <context>self</context>
-                </update>
-                <delete>NULL</delete>
-              </actions>
-            </properties>
-            <children/>
-          </element>
-        </children>
-      </element>
       <element name="relatedItemConstituent">
         <properties>
           <type>tabs</type>
@@ -1457,13 +1593,13 @@
           <autocomplete_path>islandora/entities/autocomplete/disambiguated</autocomplete_path>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
+          <description>&lt;strong&gt;Label and describe any additional files here. You will upload them on the next page.&lt;/strong&gt;</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
           <required>FALSE</required>
           <resizable>FALSE</resizable>
           <title>Supplemental Items</title>
-          <description>&lt;strong&gt;Label and describe any additional files here. You will upload them on the next page.&lt;/strong&gt;</description>
           <tree>TRUE</tree>
         </properties>
         <children>
@@ -1492,17 +1628,17 @@
                   <path>mods:relatedItem[@type='constituent']</path>
                   <context>parent</context>
                 </read>
-                <update>NULL</update>
-                <delete>
+                <update>
                   <path>self::node()</path>
                   <context>self</context>
-                </delete>
+                </update>
+                <delete>NULL</delete>
               </actions>
             </properties>
             <children>
               <element name="relatedItemConstituentTitle">
                 <properties>
-                  <type>textfield</type>
+                  <type>markup</type>
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
@@ -1519,12 +1655,12 @@
                       <path>self::node()</path>
                       <context>parent</context>
                       <schema/>
-                      <type>xml</type>
+                      <type>element</type>
                       <prefix>NULL</prefix>
-                      <value>&lt;titleInfo&gt;&lt;title&gt;%value%&lt;/title&gt;&lt;/titleInfo&gt;</value>
+                      <value>titleInfo</value>
                     </create>
                     <read>
-                      <path>mods:titleInfo/mods:title</path>
+                      <path>mods:titleInfo</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -1534,7 +1670,43 @@
                     <delete>NULL</delete>
                   </actions>
                 </properties>
-                <children/>
+                <children>
+                  <element name="relatedItemTitle">
+                    <properties>
+                      <type>textfield</type>
+                      <access>TRUE</access>
+                      <collapsed>FALSE</collapsed>
+                      <collapsible>FALSE</collapsible>
+                      <description>Use for title of supplemental file.</description>
+                      <disabled>FALSE</disabled>
+                      <executes_submit_callback>FALSE</executes_submit_callback>
+                      <multiple>FALSE</multiple>
+                      <required>FALSE</required>
+                      <resizable>FALSE</resizable>
+                      <tree>TRUE</tree>
+                      <actions>
+                        <create>
+                          <path>self::node()</path>
+                          <context>parent</context>
+                          <schema/>
+                          <type>element</type>
+                          <prefix>NULL</prefix>
+                          <value>title</value>
+                        </create>
+                        <read>
+                          <path>mods:title</path>
+                          <context>parent</context>
+                        </read>
+                        <update>
+                          <path>self::node()</path>
+                          <context>self</context>
+                        </update>
+                        <delete>NULL</delete>
+                      </actions>
+                    </properties>
+                    <children/>
+                  </element>
+                </children>
               </element>
               <element name="relatedItemConstituentAbstract">
                 <properties>
@@ -1649,7 +1821,7 @@
               <context>parent</context>
               <schema/>
               <type>attribute</type>
-              <prefix>xsi</prefix>
+              <prefix>NULL</prefix>
               <value>version</value>
             </create>
             <read>NULL</read>
