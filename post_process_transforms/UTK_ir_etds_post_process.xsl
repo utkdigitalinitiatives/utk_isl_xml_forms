@@ -18,6 +18,12 @@
     </xsl:copy>
   </xsl:template>
 
+  <!-- if any of the following elements are empty, drop them from the transform. this list could grow. -->
+  <!-- if an extra thesis advisor or committee member is added to the form -->
+  <xsl:template match="mods:name[@type='personal'][mods:displayForm='']"/>
+  <!-- if no supplemental files are attached in the initial form -->
+  <xsl:template match="mods:relatedItem[@type='constituent'][mods:titleInfo[mods:title='']][mods:abstract='']"/>
+
   <!-- *if* the valueURI is empty, copy the name element, but remove all attributes but @type='personal' -->
   <xsl:template match="mods:name[@authority='orcid'][@valueURI='']">
     <xsl:copy>
