@@ -11,6 +11,8 @@
   <xsl:output encoding="UTF-8" indent="yes" method="xml"/>
   <xsl:strip-space elements="*"/>
 
+  <xsl:param name="date-in" select="''"/>
+
   <!-- identity transform -->
   <xsl:template match="@*|node()">
     <xsl:copy>
@@ -48,4 +50,12 @@
     </xsl:copy>
   </xsl:template>
 
+  <xsl:template match="mods:originInfo">
+    <xsl:copy>
+      <mods:dateCreated encoding="w3cdtf">
+        <xsl:value-of select="$date-in"/>
+      </mods:dateCreated>
+      <xsl:apply-templates/>
+    </xsl:copy>
+  </xsl:template>
 </xsl:stylesheet>
