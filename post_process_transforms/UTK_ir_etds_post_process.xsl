@@ -73,4 +73,21 @@
       <xsl:value-of select="$date-in"/>
     </xsl:copy>
   </xsl:template>
+
+  <!--
+    add-recordInfo adds the initial mods:recordInfo element and children to a new record.
+   -->
+  <xsl:template match="mods:physicalDescription[@authority='local']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+    <mods:recordInfo displayLabel="Submission">
+      <mods:recordCreationDate encoding="w3cdtf">
+        <xsl:value-of select="$date-in"/>
+      </mods:recordCreationDate>
+      <mods:recordChangeDate keyDate="yes" encoding="w3cdtf">
+        <xsl:value-of select="$date-in"/>
+      </mods:recordChangeDate>
+    </mods:recordInfo>
+  </xsl:template>
 </xsl:stylesheet>
