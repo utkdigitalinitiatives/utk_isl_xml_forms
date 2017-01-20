@@ -50,12 +50,27 @@
     </xsl:copy>
   </xsl:template>
 
+  <!--
+    copy the initial values in mods:originInfo. test for a mods:dateCreated element and,
+    if it doesn't exist create mods:dateCreated.
+  -->
   <xsl:template match="mods:originInfo">
     <xsl:copy>
-      <mods:dateCreated encoding="w3cdtf">
-        <xsl:value-of select="$date-in"/>
-      </mods:dateCreated>
+      <xsl:if test="not(mods:dateCreated[@encoding='w3cdtf'])">
+        <mods:dateCreated encoding="w3cdtf">
+          <xsl:value-of select="$date-in"/>
+        </mods:dateCreated>
+      </xsl:if>
       <xsl:apply-templates/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!--
+    *if* there is a mods:originInfo/mods:dateCreated, update the value.
+  -->
+  <xsl:template match="mods:originInfo/mods:dateCreated[@encoding='w3cdtf']">
+    <xsl:copy>
+      <xsl:value-of select="$date-in"/>
     </xsl:copy>
   </xsl:template>
 </xsl:stylesheet>
