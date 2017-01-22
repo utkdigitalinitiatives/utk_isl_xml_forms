@@ -61,7 +61,7 @@
           <xsl:value-of select="$date-in"/>
         </mods:dateCreated>
       </xsl:if>
-      <xsl:apply-templates/>
+      <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
   </xsl:template>
 
@@ -70,6 +70,7 @@
   -->
   <xsl:template match="mods:originInfo/mods:dateCreated[@encoding='w3cdtf']">
     <xsl:copy>
+      <xsl:apply-templates select="@*"/>
       <xsl:value-of select="$date-in"/>
     </xsl:copy>
   </xsl:template>
