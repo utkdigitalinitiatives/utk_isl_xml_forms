@@ -75,19 +75,33 @@
   </xsl:template>
 
   <!--
-    add-recordInfo adds the initial mods:recordInfo element and children to a new record.
+    this template adds a mods:recordInfo element to the file if the element is not present
    -->
   <xsl:template match="mods:physicalDescription[@authority='local']">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
-    <mods:recordInfo displayLabel="Submission">
-      <mods:recordCreationDate encoding="w3cdtf">
-        <xsl:value-of select="$date-in"/>
-      </mods:recordCreationDate>
-      <mods:recordChangeDate keyDate="yes" encoding="w3cdtf">
-        <xsl:value-of select="$date-in"/>
-      </mods:recordChangeDate>
-    </mods:recordInfo>
+    <xsl:if test="not(following-sibling::mods:recordInfo[@displayLabel='Submission'])">
+      <mods:recordInfo displayLabel="Submission">
+        <mods:recordCreationDate encoding="w3cdtf">
+          <xsl:value-of select="$date-in"/>
+        </mods:recordCreationDate>
+        <mods:recordChangeDate keyDate="yes" encoding="w3cdtf">
+          <xsl:value-of select="$date-in"/>
+        </mods:recordChangeDate>
+      </mods:recordInfo>
+    </xsl:if>
+  </xsl:template>
+
+  <!--
+    this template updates the mods:recordInfo element with a new mods:recordDateChange for each edit of the MODS datastream
+  -->
+  <xsl:template match="mods:recordInfo[@displayLabel='Submission']/mods:recordChangeDate[@keyDate='yes'][@encoding='w3cdtf'][position() = last()]">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+    <mods:recordChangeDate keyDate="yes" encoding="w3cdtf">
+      <xsl:value-of select="$date-in"/>
+    </mods:recordChangeDate>
   </xsl:template>
 </xsl:stylesheet>
