@@ -22,6 +22,18 @@
       <mods:roleTerm type="text">Committee member</mods:roleTerm>
     </mods:role>
   </mods:name>
+  <mods:name type="personal">
+    <mods:displayForm>aramis tarmac</mods:displayForm>
+    <mods:role>
+      <mods:roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/ths">Thesis advisor</mods:roleTerm>
+    </mods:role>
+  </mods:name>
+  <mods:name type="personal">
+    <mods:displayForm/>
+    <mods:role>
+      <mods:roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/ths">Thesis advisor</mods:roleTerm>
+    </mods:role>
+  </mods:name>
   <mods:typeOfResource>text</mods:typeOfResource>
   <mods:genre authority="lcgft" valueURI="http://id.loc.gov/authorities/genreForms/gf2014026039">Academic theses</mods:genre>
   <mods:originInfo>
