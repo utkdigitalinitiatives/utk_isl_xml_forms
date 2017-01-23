@@ -23,6 +23,8 @@
   <xsl:template match="mods:name[@type='personal'][mods:displayForm='']"/>
   <!-- if no supplemental files are attached in the initial form -->
   <xsl:template match="mods:relatedItem[@type='constituent'][mods:titleInfo[mods:title='']][mods:abstract='']"/>
+  <!-- if no namePart[@type='termsOfAddress'] is present, drop the empty element -->
+  <xsl:template match="mods:name[@type='personal']/mods:namePart[@type='termsOfAddress'][.='']"/>
 
   <!-- *if* the valueURI is empty, copy the name element, but remove all attributes but @type='personal' -->
   <xsl:template match="mods:name[@authority='orcid'][@valueURI='']">
