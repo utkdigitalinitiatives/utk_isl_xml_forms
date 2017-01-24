@@ -78,7 +78,7 @@
   <!--
     this template adds a mods:recordInfo element to the file if the element is not present
    -->
-  <xsl:template match="mods:physicalDescription[@authority='local']">
+  <xsl:template match="mods:physicalDescription[mods:note[@displayLabel='Publication Status']]">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
