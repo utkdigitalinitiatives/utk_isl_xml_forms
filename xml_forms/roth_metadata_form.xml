@@ -146,38 +146,9 @@
           </element>
         </children>
       </element>
-      <element name="Name">
-        <properties>
-          <type>hidden</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <title>Name</title>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>xml</type>
-              <prefix>NULL</prefix>
-              <value>&lt;name authority='naf' valueURI="http://id.loc.gov/authorities/names/n2004050214.html"&gt;&lt;namePart&gt;Roth, Albert, 1890-1974&lt;/namePart&gt;&lt;role&gt;&lt;roleTerm type="text" authroity="marcrelator" valueURI="http://id.loc.gov/vocabulary/relators/pht.html"&gt;Photographer&lt;/roleTerm&gt;&lt;/role&gt;&lt;/name&gt;</value>
-            </create>
-            <read>NULL</read>
-            <update>NULL</update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children/>
-      </element>
       <element name="language">
         <properties>
-          <type>hidden</type>
+          <type>markup</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
@@ -194,12 +165,12 @@
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;language&gt;&lt;languageTerm authority="iso639-2b" type="code"&gt;zxx&lt;/languageTerm&gt;&lt;/language&gt;</value>
+              <value>language</value>
             </create>
             <read>
-              <path>mods:language/mods:languageTerm[@authority="iso639-2b" and @type="code"]</path>
+              <path>mods:language</path>
               <context>parent</context>
             </read>
             <update>
@@ -209,7 +180,43 @@
             <delete>NULL</delete>
           </actions>
         </properties>
-        <children/>
+        <children>
+          <element name="languageTerm">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>languageTerm</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;languageTerm type="code" authority="iso639-2b"&gt;zxx&lt;/languageTerm&gt;</value>
+                </create>
+                <read>
+                  <path>mods:languageTerm</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
       </element>
       <element name="abstract">
         <properties>
@@ -248,34 +255,9 @@ Please ensure that the descriptive information pertains to the digitized object 
         </properties>
         <children/>
       </element>
-      <element name="identifier">
-        <properties>
-          <type>hidden</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <title>Local Identifier</title>
-          <tree>TRUE</tree>
-          <actions>
-            <create>NULL</create>
-            <read>
-              <path>mods:identifier[@type="filename"]</path>
-              <context>parent</context>
-            </read>
-            <update>NULL</update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children/>
-      </element>
       <element name="collection">
         <properties>
-          <type>hidden</type>
+          <type>markup</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
@@ -291,24 +273,170 @@ Please ensure that the descriptive information pertains to the digitized object 
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;relatedItem displayLabel='Collection' type='host'&gt;&lt;titleInfo&gt;&lt;title&gt;A. G. "Dutch" and Margaret Ann Roth Papers&lt;/title&gt;&lt;/titleInfo&gt;&lt;identifier&gt;MS.3334&lt;/identifier&gt;&lt;/relatedItem&gt;</value>
+              <value>relatedItem</value>
             </create>
-            <read>NULL</read>
-            <update>NULL</update>
+            <read>
+              <path>mods:relatedItem</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
-        <children/>
+        <children>
+          <element name="displayLabel">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>Collection</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>attribute</type>
+                  <prefix>NULL</prefix>
+                  <value>displayLabel</value>
+                </create>
+                <read>
+                  <path>@displayLabel</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="type">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>host</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>attribute</type>
+                  <prefix>NULL</prefix>
+                  <value>type</value>
+                </create>
+                <read>
+                  <path>@type</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="titleInfo">
+            <properties>
+              <type>markup</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>titleInfo</value>
+                </create>
+                <read>
+                  <path>mods:titleInfo</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children>
+              <element name="title">
+                <properties>
+                  <type>hidden</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <default_value>A. G. "Dutch" and Margaret Ann Roth Papers</default_value>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <required>FALSE</required>
+                  <resizable>FALSE</resizable>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>NULL</prefix>
+                      <value>title</value>
+                    </create>
+                    <read>
+                      <path>mods:title</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+            </children>
+          </element>
+        </children>
       </element>
-      <element name="dateText">
+      <element name="originInfo">
         <properties>
-          <type>textfield</type>
+          <type>markup</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <description>This is the display/human-readable form of the date. Date may be entered in structured form, e.g., 1935-07-09 or textual form, e.g., July 9th, 1935. Use circa, approximately, or other appropriate term, when the date is uncertain, e.g., circa 1945. Repeat if transcription/translated/transliteration needed.&lt;br/&gt;&lt;br/&gt;Pulled from finding aid information. If slide itself have a more specific date, use that instead of the finding aid date.</description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -321,12 +449,12 @@ Please ensure that the descriptive information pertains to the digitized object 
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;originInfo&gt;&lt;dateCreated&gt;%value%&lt;/dateCreated&gt;&lt;/originInfo&gt;</value>
+              <value>originInfo</value>
             </create>
             <read>
-              <path>mods:originInfo/mods:dateCreated</path>
+              <path>mods:originInfo</path>
               <context>parent</context>
             </read>
             <update>
@@ -336,11 +464,48 @@ Please ensure that the descriptive information pertains to the digitized object 
             <delete>NULL</delete>
           </actions>
         </properties>
-        <children/>
+        <children>
+          <element name="dateCreated">
+            <properties>
+              <type>textfield</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <description>This is the display/human-readable form of the date. Date may be entered in structured form, e.g., 1935-07-09 or textual form, e.g., July 9th, 1935. Use circa, approximately, or other appropriate term, when the date is uncertain, e.g., circa 1945. Repeat if transcription/translated/transliteration needed.&lt;br/&gt;&lt;br/&gt;Pulled from finding aid information. If slide itself have a more specific date, use that instead of the finding aid date.</description>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>Date</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>dateCreated</value>
+                </create>
+                <read>
+                  <path>mods:dateCreated</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
       </element>
-      <element name="form">
+      <element name="physicalDescription">
         <properties>
-          <type>hidden</type>
+          <type>markup</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
@@ -349,27 +514,68 @@ Please ensure that the descriptive information pertains to the digitized object 
           <multiple>FALSE</multiple>
           <required>FALSE</required>
           <resizable>FALSE</resizable>
-          <title>form</title>
+          <title>physicalDescription</title>
           <tree>TRUE</tree>
           <actions>
             <create>
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;physicalDescription&gt;&lt;form authority="aat" valueURI="http://vocab.getty.edu/aat/300127173"&gt;negatives (photographs)&lt;/form&gt;&lt;/physicalDescription&gt;</value>
+              <value>physicalDescription</value>
             </create>
-            <read>NULL</read>
-            <update>NULL</update>
+            <read>
+              <path>mods:physicalDescription</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
-        <children/>
+        <children>
+          <element name="form">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;form authority="aat" valueURI="http://vocab.getty.edu/aat/300127173"&gt;negatives (photographs)&lt;/form&gt;</value>
+                </create>
+                <read>
+                  <path>mods:form[@authority="aat"]</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
       </element>
       <element name="projectTitle">
         <properties>
-          <type>hidden</type>
+          <type>markup</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
@@ -385,16 +591,163 @@ Please ensure that the descriptive information pertains to the digitized object 
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;relatedItem displayLabel="Project" type="host"&gt;&lt;titleInfo&gt;&lt;title&gt;Albert "Dutch" Roth Photograph Collection&lt;/title&gt;&lt;/titleInfo&gt;&lt;/relatedItem&gt;</value>
+              <value>relatedItem</value>
             </create>
-            <read>NULL</read>
-            <update>NULL</update>
+            <read>
+              <path>mods:relatedItem</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
-        <children/>
+        <children>
+          <element name="displayLabel">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>Project</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>attribute</type>
+                  <prefix>NULL</prefix>
+                  <value>displayLabel</value>
+                </create>
+                <read>
+                  <path>@displayLabel</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="type">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>host</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>attribute</type>
+                  <prefix>NULL</prefix>
+                  <value>type</value>
+                </create>
+                <read>
+                  <path>@type</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="titleInfo">
+            <properties>
+              <type>markup</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>titleInfo</value>
+                </create>
+                <read>
+                  <path>mods:titleInfo</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children>
+              <element name="title">
+                <properties>
+                  <type>hidden</type>
+                  <access>TRUE</access>
+                  <collapsed>FALSE</collapsed>
+                  <collapsible>FALSE</collapsible>
+                  <default_value>A. G. "Dutch" and Margaret Ann Roth Papers</default_value>
+                  <disabled>FALSE</disabled>
+                  <executes_submit_callback>FALSE</executes_submit_callback>
+                  <multiple>FALSE</multiple>
+                  <required>FALSE</required>
+                  <resizable>FALSE</resizable>
+                  <tree>TRUE</tree>
+                  <actions>
+                    <create>
+                      <path>self::node()</path>
+                      <context>parent</context>
+                      <schema/>
+                      <type>element</type>
+                      <prefix>NULL</prefix>
+                      <value>title</value>
+                    </create>
+                    <read>
+                      <path>mods:title</path>
+                      <context>parent</context>
+                    </read>
+                    <update>
+                      <path>self::node()</path>
+                      <context>self</context>
+                    </update>
+                    <delete>NULL</delete>
+                  </actions>
+                </properties>
+                <children/>
+              </element>
+            </children>
+          </element>
+        </children>
       </element>
       <element name="note">
         <properties>
@@ -434,7 +787,7 @@ Please ensure that the descriptive information pertains to the digitized object 
       </element>
       <element name="repository">
         <properties>
-          <type>hidden</type>
+          <type>markup</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
@@ -450,16 +803,58 @@ Please ensure that the descriptive information pertains to the digitized object 
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;location&gt;&lt;physicalLocation&gt;University of Tennessee, Knoxville. Special Collections&lt;/physicalLocation&gt;&lt;/location&gt;</value>
+              <value>location</value>
             </create>
-            <read>NULL</read>
-            <update>NULL</update>
+            <read>
+              <path>mods:location</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
-        <children/>
+        <children>
+          <element name="physicalLocation">
+            <properties>
+              <type>textfield</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>University of Tennessee, Knoxville. Special Collections</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>physicalLocation</value>
+                </create>
+                <read>
+                  <path>mods:physicalLocation</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
       </element>
       <element name="accessCondition">
         <properties>
@@ -467,6 +862,7 @@ Please ensure that the descriptive information pertains to the digitized object 
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
+          <default_value>The copyright interests in this item remain with the creator. For more information, contact Special Collections at special@utk.edu.</default_value>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -479,12 +875,18 @@ Please ensure that the descriptive information pertains to the digitized object 
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;accessCondition&gt;The copyright interests in this item remain with the creator. For more information, contact Special Collections at special@utk.edu.&lt;/accessCondition&gt;</value>
+              <value>accessCondition</value>
             </create>
-            <read>NULL</read>
-            <update>NULL</update>
+            <read>
+              <path>mods:accessCondition</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
