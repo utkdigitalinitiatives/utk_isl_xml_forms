@@ -124,7 +124,7 @@
               <value>name</value>
             </create>
             <read>
-              <path>mods:name[@type='personal']/mods:role[mods:roleTerm = 'author']/..</path>
+              <path>mods:name[@type='personal']/mods:role[mods:roleTerm = 'Author']/..</path>
               <context>parent</context>
             </read>
             <update>
