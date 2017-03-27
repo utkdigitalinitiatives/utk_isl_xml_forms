@@ -822,7 +822,7 @@ Please ensure that the descriptive information pertains to the digitized object 
         <children>
           <element name="physicalLocation">
             <properties>
-              <type>textfield</type>
+              <type>hidden</type>
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
