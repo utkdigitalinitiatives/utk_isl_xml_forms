@@ -4,6 +4,7 @@
     <root_name>mods:mods</root_name>
     <schema_uri>http://www.loc.gov/standards/mods/v3/mods-3-5.xsd</schema_uri>
     <namespaces default="http://www.loc.gov/mods/v3">
+      <namespace prefix="xs">http://www.w3.org/2001/XMLSchema</namespace>
       <namespace prefix="etd">http://www.ndltd.org/standards/metadata/etdms/1.0</namespace>
       <namespace prefix="mods">http://www.loc.gov/mods/v3</namespace>
       <namespace prefix="xsi">http://www.w3.org/2001/XMLSchema-instance</namespace>
@@ -62,7 +63,7 @@
         </properties>
         <children/>
       </element>
-      <element name="Titles">
+      <element name="titleInfo">
         <properties>
           <type>tabs</type>
           <access>TRUE</access>
@@ -503,76 +504,7 @@ Please ensure that the descriptive information pertains to the digitized object 
           </element>
         </children>
       </element>
-      <element name="physicalDescription">
-        <properties>
-          <type>markup</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <title>physicalDescription</title>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>element</type>
-              <prefix>NULL</prefix>
-              <value>physicalDescription</value>
-            </create>
-            <read>
-              <path>mods:physicalDescription</path>
-              <context>parent</context>
-            </read>
-            <update>
-              <path>self::node()</path>
-              <context>self</context>
-            </update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children>
-          <element name="form">
-            <properties>
-              <type>hidden</type>
-              <access>TRUE</access>
-              <collapsed>FALSE</collapsed>
-              <collapsible>FALSE</collapsible>
-              <disabled>FALSE</disabled>
-              <executes_submit_callback>FALSE</executes_submit_callback>
-              <multiple>FALSE</multiple>
-              <required>FALSE</required>
-              <resizable>FALSE</resizable>
-              <tree>TRUE</tree>
-              <actions>
-                <create>
-                  <path>self::node()</path>
-                  <context>parent</context>
-                  <schema/>
-                  <type>xml</type>
-                  <prefix>NULL</prefix>
-                  <value>&lt;form authority="aat" valueURI="http://vocab.getty.edu/aat/300127173"&gt;negatives (photographs)&lt;/form&gt;</value>
-                </create>
-                <read>
-                  <path>mods:form[@authority="aat"]</path>
-                  <context>parent</context>
-                </read>
-                <update>
-                  <path>self::node()</path>
-                  <context>self</context>
-                </update>
-                <delete>NULL</delete>
-              </actions>
-            </properties>
-            <children/>
-          </element>
-        </children>
-      </element>
+      
       <element name="projectTitle">
         <properties>
           <type>markup</type>
@@ -821,7 +753,7 @@ Please ensure that the descriptive information pertains to the digitized object 
         <children>
           <element name="physicalLocation">
             <properties>
-              <type>textfield</type>
+              <type>hidden</type>
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
@@ -862,7 +794,6 @@ Please ensure that the descriptive information pertains to the digitized object 
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <default_value>The copyright interests in this item remain with the creator. For more information, contact Special Collections at special@utk.edu.</default_value>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -875,9 +806,9 @@ Please ensure that the descriptive information pertains to the digitized object 
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>element</type>
+              <type>xml</type>
               <prefix>NULL</prefix>
-              <value>accessCondition</value>
+              <value>&lt;accessCondition type="local rights statement"&gt;The copyright interests in this item remain with the creator. For more information, contact Special Collections at special@utk.edu.&lt;/accessCondition&gt;</value>
             </create>
             <read>
               <path>mods:accessCondition</path>
@@ -1368,6 +1299,35 @@ Please ensure that the descriptive information pertains to the digitized object 
             </children>
           </element>
         </children>
+      </element>
+      <element name="modsVersion">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <default_value>3.5</default_value>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>attribute</type>
+              <prefix>NULL</prefix>
+              <value>version</value>
+            </create>
+            <read>NULL</read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
       </element>
     </children>
   </form>
