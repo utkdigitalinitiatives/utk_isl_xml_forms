@@ -14,15 +14,24 @@ Example:
 
 # How should this be tested?
 
-1. Option 1:
-	* Import the Form
-	* Associate it with a content model
-	* Apply any additional / related transforms
-	* Create a new record and select the newly associated form
-	* Edit that record to see if the form still behaves correctly
-2. Option 2:
-	* vagrant destroy
-	* vagrant up
+Describe what steps to take to test this change.
+
+**Examples:**
+* Testing the entire workflow:
+    * Import the Form
+    * Associate it with a content model
+    * Apply any additional related transforms
+    * Create a new record and select the newly associated form
+    * Edit that record to verify proper CRUD behavior
+* `vagrant destroy -f && vagrant up`
+* Associating a post-processing transform
+    * `vagrant destroy -f && vagrant up && vagrant ssh`
+    * `git clone https://github.com/$USER_NAME/$REPO_NAME`
+    * `sudo cp $REPO_NAME/dir-path/transform.xsl /var/www/drupal/sites/all/modules/islandora_xml_transforms/builder/self_transforms/`
+    * Associate the post-processing transform with an XML Form
+    * Edit or create a new DSID
+    * Verify proper behavior from the post-processing transform
+* etc...
 
 
 # Additional Notes:
