@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3">
+    <properties>
+        <root_name>mods:mods</root_name>
+        <schema_uri>http://www.loc.gov/standards/mods/v3/mods-3-5.xsd</schema_uri>
+        <namespaces default="http://www.loc.gov/mods/v3">
+            <namespace prefix="etd">http://www.ndltd.org/standards/metadata/etdms/1.0</namespace>
+            <namespace prefix="xsi">http://www.w3.org/2001/XMLSchema-instance</namespace>
+            <namespace prefix="xlink">http://www.w3.org/1999/xlink</namespace>
+            <namespace prefix="xs">http://www.w3.org/2001/XMLSchema</namespace>
+        </namespaces>
+    </properties>
+    <form>
+        <properties>
+            <type>form</type>
+            <access>TRUE</access>
+            <collapsed>FALSE</collapsed>
+            <collapsible>FALSE</collapsible>
+            <disabled>FALSE</disabled>
+            <executes_submit_callback>FALSE</executes_submit_callback>
+            <multiple>FALSE</multiple>
+            <required>FALSE</required>
+            <resizable>FALSE</resizable>
+            <tree>TRUE</tree>
+            <actions>
+                <create>NULL</create>
+                <read>
+                    <path>//mods:mods[1]</path>
+                    <context>document</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+            </actions>
+        </properties>
+        <children>
+            <element name="XSD">
+                <properties>
+                    <type>hidden</type>
+                    <access>TRUE</access>
+                    <collapsed>FALSE</collapsed>
+                    <collapsible>FALSE</collapsible>
+                    <default_value>http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd</default_value>
+                    <disabled>FALSE</disabled>
+                    <executes_submit_callback>FALSE</executes_submit_callback>
+                    <multiple>FALSE</multiple>
+                    <required>FALSE</required>
+                    <resizable>FALSE</resizable>
+                    <tree>TRUE</tree>
+                    <actions>
+                        <create>
+                            <path>self::node()</path>
+                            <context>parent</context>
+                            <schema/>
+                            <type>attribute</type>
+                            <prefix>xsi</prefix>
+                            <value>xsi:schemaLocation</value>
+                        </create>
+                        <read>NULL</read>
+                        <update>NULL</update>
+                        <delete>NULL</delete>
+                    </actions>
+                </properties>
+                <children/>
+            </element>
+            <element name="modsVersion">
+                <properties>
+                    <type>hidden</type>
+                    <access>TRUE</access>
+                    <collapsed>FALSE</collapsed>
+                    <collapsible>FALSE</collapsible>
+                    <default_value>3.5</default_value>
+                    <disabled>FALSE</disabled>
+                    <executes_submit_callback>FALSE</executes_submit_callback>
+                    <multiple>FALSE</multiple>
+                    <required>FALSE</required>
+                    <resizable>FALSE</resizable>
+                    <tree>TRUE</tree>
+                    <actions>
+                        <create>
+                            <path>self::node()</path>
+                            <context>parent</context>
+                            <schema/>
+                            <type>attribute</type>
+                            <prefix>NULL</prefix>
+                            <value>version</value>
+                        </create>
+                        <read>NULL</read>
+                        <update>NULL</update>
+                        <delete>NULL</delete>
+                    </actions>
+                </properties>
+                <children/>
+            </element>
+        </children>
+    </form>
+</definition>
