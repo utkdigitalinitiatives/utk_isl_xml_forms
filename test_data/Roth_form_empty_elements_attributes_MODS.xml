@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:etd="http://www.ndltd.org/standards/metadata/etdms/1.0" xmlns:mods="http://www.loc.gov/mods/v3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd" version="3.5">
+  <identifier type="filename">0012_002328_000001</identifier>
+  <titleInfo>
+    <title>Sunshine</title>
+  </titleInfo>
+  <originInfo>
+    <dateCreated>1924</dateCreated>
+  </originInfo>
+  <accessCondition type="local rights statement">The copyright interests in this item remain with the creator. For more information contact Special Collections at special@utk.edu.</accessCondition>
+  <relatedItem type="series" displayLabel="Project">
+    <titleInfo>
+      <title>Series I: A. G. Dutch Roth Photographs and Other Materials, circa 1880s-1985 (bulk circa 1880s-1960). Sub-Series A: Photographs, 1916 May 24-1960 March 2</title>
+    </titleInfo>
+  </relatedItem>
+  <relatedItem displayLabel="Collection" type="host">
+    <titleInfo>
+      <title>A. G. "Dutch" and Margaret Ann  Roth  Papers</title>
+    </titleInfo>
+    <identifier>MS.3334</identifier>
+  </relatedItem>
+  <physicalDescription>
+    <extent>5.5 inches x 3.5 inches</extent>
+  </physicalDescription>
+  <physicalDescription>
+    <form authority="aat" valueURI="http://vocab.getty.edu/aat/300127173">negatives (photographs)</form>
+  </physicalDescription>
+  <relatedItem displayLabel="Project" type="host">
+    <titleInfo>
+      <title>Albert "Dutch" Roth Photograph Collection</title>
+    </titleInfo>
+  </relatedItem>
+  <location>
+    <physicalLocation>University of Tennessee, Knoxville. Special Collections</physicalLocation>
+  </location>
+  <name>
+    <namePart>Roth, Albert, 1890-1974</namePart>
+    <role>
+      <roleTerm type="text" authority="marcrelators" valueURI="http://id.loc.gov/vocabulary/relators/pht.html">Photographer</roleTerm>
+    </role>
+  </name>
+  <language>
+    <languageTerm type="code" authority="iso639-2b">zxx</languageTerm>
+  </language>
+  <abstract></abstract>
+  <note></note>
+  <subject authority="fdd" valueURI="jkjkjk">
+    <geographic>asdfasdfasdf</geographic>
+  </subject>
+  <subject authority="asdfasdfasdfasdfasd" valueURI="iopdgfiopsdgfuiopsdgfuiopsdgfuiop">
+    <name>
+      <namePart>2345623452345</namePart>
+    </name>
+  </subject>
+  <subject authority="" valueURI="">
+    <topic>    </topic>
+  </subject>
+  <subject authority="" valueURI="">
+    <geographic>12345</geographic>
+  </subject>
+  <subject authority="" valueURI="">
+    <name>
+      <namePart>empty-attributes</namePart>
+    </name>
+  </subject>
+</mods>
