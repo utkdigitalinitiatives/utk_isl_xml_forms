@@ -27,7 +27,7 @@ Describe what steps to take to test this change.
 * Associating a post-processing transform
     * `vagrant destroy -f && vagrant up && vagrant ssh`
     * `git clone https://github.com/$USER_NAME/$REPO_NAME`
-    * `sudo cp $REPO_NAME/dir-path/transform.xsl /var/www/drupal/sites/all/modules/islandora_xml_transforms/builder/self_transforms/`
+    * `sudo cp $REPO_NAME/dir-path/transform.xsl /var/www/drupal/sites/all/modules/islandora_xml_forms/builder/self_transforms/`
     * Associate the post-processing transform with an XML Form
     * Edit or create a new DSID
     * Verify proper behavior from the post-processing transform
