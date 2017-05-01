@@ -836,7 +836,7 @@
       </element>
       <element name="advisor">
         <properties>
-          <type>tabs</type>
+          <type>fieldpanel</type>
           <access>TRUE</access>
           <autocomplete_path>islandora/entities/autocomplete/disambiguated</autocomplete_path>
           <collapsed>FALSE</collapsed>
@@ -852,7 +852,7 @@
         <children>
           <element name="0">
             <properties>
-              <type>tabpanel</type>
+              <type>fieldpane</type>
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
@@ -1025,7 +1025,7 @@
       </element>
       <element name="committee">
         <properties>
-          <type>tabs</type>
+          <type>fieldpanel</type>
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
@@ -1040,7 +1040,7 @@
         <children>
           <element name="0">
             <properties>
-              <type>tabpanel</type>
+              <type>fieldpane</type>
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
