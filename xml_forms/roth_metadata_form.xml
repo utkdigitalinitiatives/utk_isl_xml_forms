@@ -533,7 +533,6 @@ Please ensure that the descriptive information pertains to the digitized object 
           </element>
         </children>
       </element>
-      
       <element name="projectTitle">
         <properties>
           <type>markup</type>
@@ -951,7 +950,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <tree>TRUE</tree>
                   <actions>
                     <create>
-                      <path>self::node()</path>
+                      <path>mods:geographic</path>
                       <context>parent</context>
                       <schema/>
                       <type>attribute</type>
@@ -959,7 +958,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>authority</value>
                     </create>
                     <read>
-                      <path>@authority</path>
+                      <path>mods:geographic/@authority</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -987,7 +986,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <tree>TRUE</tree>
                   <actions>
                     <create>
-                      <path>self::node()</path>
+                      <path>mods:geographic</path>
                       <context>parent</context>
                       <schema/>
                       <type>attribute</type>
@@ -995,7 +994,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>valueURI</value>
                     </create>
                     <read>
-                      <path>@valueURI</path>
+                      <path>mods:geographic/@valueURI</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -1110,7 +1109,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <tree>TRUE</tree>
                   <actions>
                     <create>
-                      <path>self::node()</path>
+                      <path>mods:name</path>
                       <context>parent</context>
                       <schema/>
                       <type>attribute</type>
@@ -1118,7 +1117,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>authority</value>
                     </create>
                     <read>
-                      <path>@authority</path>
+                      <path>mods:name/@authority</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -1146,7 +1145,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <tree>TRUE</tree>
                   <actions>
                     <create>
-                      <path>self::node()</path>
+                      <path>mods:name</path>
                       <context>parent</context>
                       <schema/>
                       <type>attribute</type>
@@ -1154,7 +1153,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>valueURI</value>
                     </create>
                     <read>
-                      <path>@valueURI</path>
+                      <path>mods:name/@valueURI</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -1269,7 +1268,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <tree>TRUE</tree>
                   <actions>
                     <create>
-                      <path>self::node()</path>
+                      <path>mods:topic</path>
                       <context>parent</context>
                       <schema/>
                       <type>attribute</type>
@@ -1277,7 +1276,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>authority</value>
                     </create>
                     <read>
-                      <path>@authority</path>
+                      <path>mods:topic/@authority</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -1305,7 +1304,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                   <tree>TRUE</tree>
                   <actions>
                     <create>
-                      <path>self::node()</path>
+                      <path>mods:topic</path>
                       <context>parent</context>
                       <schema/>
                       <type>attribute</type>
@@ -1313,7 +1312,7 @@ Please ensure that the descriptive information pertains to the digitized object 
                       <value>valueURI</value>
                     </create>
                     <read>
-                      <path>@valueURI</path>
+                      <path>mods:topic/@valueURI</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -1328,35 +1327,6 @@ Please ensure that the descriptive information pertains to the digitized object 
             </children>
           </element>
         </children>
-      </element>
-      <element name="modsVersion">
-        <properties>
-          <type>hidden</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <default_value>3.5</default_value>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>attribute</type>
-              <prefix>NULL</prefix>
-              <value>version</value>
-            </create>
-            <read>NULL</read>
-            <update>NULL</update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children/>
       </element>
     </children>
   </form>
