@@ -1060,7 +1060,7 @@
                   <value>name</value>
                 </create>
                 <read>
-                  <path>mods:name[@type='personal']/mods:role[mods:roleTerm = 'Committee member']/..</path>
+                  <path>mods:name/mods:role[mods:roleTerm = 'Committee member']/..</path>
                   <context>parent</context>
                 </read>
                 <update>NULL</update>
