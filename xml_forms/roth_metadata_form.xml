@@ -888,7 +888,7 @@ Please ensure that the descriptive information pertains to the digitized object 
               <schema/>
               <type>xml</type>
               <prefix>NULL</prefix>
-              <value>&lt;accessCondition type="local rights statement"&gt;The copyright interests in this item remain with the creator. For more information, contact Special Collections at special@utk.edu.&lt;/accessCondition&gt;</value>
+              <value>&lt;accessCondition type="use and reproduction" xlink:href="http://rightsstatements.org/vocab/InC/1.0/"&gt;In Copyright&lt;/accessCondition&gt;</value>
             </create>
             <read>
               <path>mods:accessCondition</path>
