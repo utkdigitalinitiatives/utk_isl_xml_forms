@@ -1160,7 +1160,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>CommitteeMember Suffix</title>
+                  <title>Committee Member Suffix</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
