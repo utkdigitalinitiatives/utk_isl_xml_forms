@@ -1002,7 +1002,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Thesis Advisor Suffix</title>
+                  <title>Advisor/Major Professor Suffix</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
