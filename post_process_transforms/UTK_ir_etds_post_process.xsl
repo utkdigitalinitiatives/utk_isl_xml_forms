@@ -5,6 +5,7 @@
                 xmlns:mods="http://www.loc.gov/mods/v3"
                 xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:etd="http://www.ndltd.org/standards/metadata/etdms/1.0"
                 exclude-result-prefixes="xs"
                 version="1.0">
 
