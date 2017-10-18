@@ -97,6 +97,24 @@
   </xsl:template>
 
   <!--
+    based on the value of mods:extension/etd:degree/etd:level, serialize the correct
+    URI for mods:genre[@authority='COAR'].
+  -->
+  <!-- 'Doctoral' -->
+  <xsl:template match="mods:extension[etd:degree/etd:level[starts-with(., 'Doctoral')]]">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+    <mods:genre authority="coar" valueURI="http://purl.org/coar/resource_type/c_db06">doctoral thesis</mods:genre>
+  </xsl:template>
+  <!-- 'Masters' -->
+  <xsl:template match="mods:extension[etd:degree/etd:level[starts-with(., 'Masters')]]">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+    <mods:genre authority="coar" valueURI="http://purl.org/coar/resource_type/c_bdcc">masters thesis</mods:genre>
+  </xsl:template>
+  <!--
     this template updates the mods:recordInfo element with a new mods:recordDateChange for each edit of the MODS datastream
   -->
   <xsl:template match="mods:recordInfo[@displayLabel='Submission']/mods:recordChangeDate[@keyDate='yes'][@encoding='w3cdtf'][position() = last()]">
