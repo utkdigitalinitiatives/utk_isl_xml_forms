@@ -13,6 +13,7 @@
   <xsl:strip-space elements="*"/>
 
   <xsl:param name="date-in" select="''"/>
+  <xsl:variable name="lowercase" select="'abcdefghijklmnopqurstuv'"/>
 
   <!-- identity transform -->
   <xsl:template match="@*|node()">
@@ -98,19 +99,24 @@
 
   <!--
     based on the value of mods:extension/etd:degree/etd:level, serialize the correct
-    URI for mods:genre[@authority='COAR'].
+    URI for mods:genre[@authority='coar'].
   -->
   <xsl:template match="mods:genre[@authority='lcgft']">
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
-    <xsl:if test="/mods:mods/mods:extension/etd:degree/etd:level[starts-with(., 'Doctoral')]">
+    <xsl:if test="(/mods:mods/mods:extension/etd:degree/etd:level[starts-with(., 'Doctoral')])">
       <mods:genre authority="coar" valueURI="http://purl.org/coar/resource_type/c_db06">doctoral thesis</mods:genre>
     </xsl:if>
-    <xsl:if test="/mods:mods/mods:extension/etd:degree/etd:level[starts-with(., 'Masters')]">
+    <xsl:if test="(/mods:mods/mods:extension/etd:degree/etd:level[starts-with(., 'Masters')])">
       <mods:genre authority="coar" valueURI="http://purl.org/coar/resource_type/c_bdcc">masters thesis</mods:genre>
     </xsl:if>
   </xsl:template>
+
+  <!--
+    *if* there is a pre-existing mods:genre[@authority='coar'] ignore it.
+  -->
+  <xsl:template match="mods:genre[@authority='coar']"/>
 
   <!--
     this template updates the mods:recordInfo element with a new mods:recordDateChange for each edit of the MODS datastream
