@@ -36,6 +36,7 @@
   </mods:name>
   <mods:typeOfResource>text</mods:typeOfResource>
   <mods:genre authority="lcgft" valueURI="http://id.loc.gov/authorities/genreForms/gf2014026039">Academic theses</mods:genre>
+  <mods:genre authority="coar" valueURI="http://purl.org/coar/resource_type/c_bdcc">masters thesis</mods:genre>
   <mods:originInfo>
     <mods:dateIssued keyDate="yes" authority="edtf">2016-12</mods:dateIssued>
   </mods:originInfo>
