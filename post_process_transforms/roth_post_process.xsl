@@ -18,6 +18,8 @@
       <xsl:apply-templates select="node()[normalize-space()]|@*[normalize-space()]"/>
     </xsl:copy>
   </xsl:template>
+  
+  <xsl:template match="mods:titleInfo[not(@supplied)]"/>
 
 </xsl:stylesheet>
 
