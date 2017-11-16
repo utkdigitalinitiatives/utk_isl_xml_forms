@@ -23,8 +23,17 @@
   </xsl:template>
 
   <!-- if any of the following elements are empty, drop them from the transform. this list could grow. -->
-  <!-- if an extra thesis advisor or committee member is added to the form -->
-  <xsl:template match="mods:name[@type='personal'][mods:displayForm='']"/>
+  <!--
+    if a thesis advisor or committee member is added via the form without a namePart[@type='given' AND 'family'] AND
+    has a role/roleTerm='Thesis advisor' or 'Committee member'.
+    MODS added via the form automatically gets an empty mods:displayForm.
+  -->
+  <xsl:template match="mods:name[mods:displayForm='']
+                                [mods:namePart[@type='given']='']
+                                [mods:namePart[@type='family']='']
+                                [mods:role/mods:roleTerm='Thesis advisor' or mods:role/roleTerm='Committee member']"/>
+  <!-- if there are any empty 'type' attributes (@type), ignore them -->
+  <xsl:template match="@type[.='']"/>
   <!-- if no supplemental files are attached in the initial form -->
   <xsl:template match="mods:relatedItem[@type='constituent'][mods:titleInfo[mods:title='']][mods:abstract='']"/>
   <!-- if no namePart[@type='termsOfAddress'] is present, drop the empty element -->
