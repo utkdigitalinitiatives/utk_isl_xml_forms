@@ -128,7 +128,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>This is the title from the finding aid.</description>
+              <description>This is the original title from the finding aid.  If this shows, the record has not been cleaned up yet, and the form should be resubmitted..</description>
               <disabled>TRUE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -159,6 +159,39 @@
             <children/>
           </element>
         </children>
+      </element>
+      <element name="noteTranscribed">
+        <properties>
+          <type>textfield</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <description>This is the original title from the finding aid in it's new location.</description>
+          <disabled>TRUE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <title>Transcribed from Original Collection</title>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;note displayLabel="Transcribed from Original Collection"&gt;%value%&lt;/note&gt;</value>
+            </create>
+            <read>
+              <path>mods:note[@displayLabel="Transcribed from Original Collection"]</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
       </element>
       <element name="titleInfosupplied">
         <properties>
