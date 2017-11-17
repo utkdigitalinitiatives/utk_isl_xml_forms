@@ -1161,7 +1161,7 @@
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-		  <title>COMMITTEE MEMBER FIRST NAME/GIVEN NAME</title>
+		  <title>Committee Member Name</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
