@@ -710,11 +710,11 @@
                     <index key="Counselor Education">Counselor Education</index>
                     <index key="Ecology and Evolutionary Biology">Ecology and Evolutionary Biology</index>
                     <index key="Economics">Economics</index>
-                    <index key="Education">Education</index>
+                    <index key="Education ">Education</index>
                     <index key="Educational Administration">Educational Administration</index>
                     <index key="Educational Psychology">Educational Psychology</index>
                     <index key="Educational Psychology and Research">Educational Psychology and Research</index>
-                    <index key="Electrical Engineering">Electrical Engineering</index>
+                    <index key="Electrical Engineering ">Electrical Engineering</index>
                     <index key="Energy Science and Engineering">Energy Science and Engineering</index>
                     <index key="Engineering Science">Engineering Science</index>
                     <index key="English">English</index>
@@ -883,42 +883,6 @@
               </actions>
             </properties>
             <children>
-              <element name="advisor">
-                <properties>
-                  <type>textfield</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <description>Enter name with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or &#x201C;PhD&#x201D;.</description>
-                  <disabled>TRUE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Advisor/Major Professor Name</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>xml</type>
-                      <prefix>NULL</prefix>
-                      <value>&lt;displayForm&gt;%value%&lt;/displayForm&gt;</value>
-                    </create>
-                    <read>
-                      <path>mods:displayForm</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
               <element name="namePartGiven">
                 <properties>
                   <type>textfield</type>
@@ -1148,42 +1112,6 @@
               </actions>
             </properties>
             <children>
-              <element name="commitee">
-                <properties>
-                  <type>textfield</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <description>Enter names with first name, middle name or initial, and last name, e.g., Steven G. Breyer or Ruth Bader Ginsburg. Do not include honorifics or titles such as "Dr." or &#x201C;PhD&#x201D;.</description>
-                  <disabled>TRUE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>Committee Member Name</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>xml</type>
-                      <prefix>NULL</prefix>
-                      <value>&lt;displayForm&gt;%value%&lt;/displayForm&gt;</value>
-                    </create>
-                    <read>
-                      <path>mods:displayForm</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>NULL</delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
               <element name="namePartGiven">
                 <properties>
                   <type>textfield</type>
