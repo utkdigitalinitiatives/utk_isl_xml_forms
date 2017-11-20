@@ -31,7 +31,7 @@
   <xsl:template match="mods:name[mods:displayForm='']
                                 [mods:namePart[@type='given']='']
                                 [mods:namePart[@type='family']='']
-                                [mods:role/mods:roleTerm='Thesis advisor' or mods:role/roleTerm='Committee member']"/>
+                                [mods:role/mods:roleTerm='Thesis advisor' or mods:role/mods:roleTerm='Committee member']"/>
   <!-- if there are any empty 'type' attributes (@type), ignore them -->
   <xsl:template match="@type[.='']"/>
   <!-- if no supplemental files are attached in the initial form -->
