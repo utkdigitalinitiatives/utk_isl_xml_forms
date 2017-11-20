@@ -139,7 +139,7 @@
                   <path>self::node()</path>
                   <context>parent</context>
                   <schema/>
-                  <type>element</type>
+                  <type>xml</type>
                   <prefix>NULL</prefix>
                   <value>&lt;title&gt;%value%&lt;/title&gt;</value>
                 </create>
@@ -484,7 +484,7 @@
               <tree>TRUE</tree>
               <actions>
                 <create>
-                  <path/>
+                  <path>self::node()</path>
                   <context>parent</context>
                   <schema/>
                   <type>xml</type>
@@ -627,7 +627,7 @@
                   <path>self::node()</path>
                   <context>parent</context>
                   <schema/>
-                  <type>xml</type>
+                  <type>element</type>
                   <prefix>NULL</prefix>
                   <value>relatedItem</value>
                 </create>
