@@ -29,9 +29,15 @@
     MODS added via the form automatically gets an empty mods:displayForm.
   -->
   <xsl:template match="mods:name[mods:displayForm='']
-                                [mods:namePart[@type='given']='']
-                                [mods:namePart[@type='family']='']
+                                [mods:namePart[@type='given']='' and mods:namePart[@type='family']='']
                                 [mods:role/mods:roleTerm='Thesis advisor' or mods:role/mods:roleTerm='Committee member']"/>
+  <!--
+    if a thesis advisor or committee member is added but for some reason has a displayForm but not the namePart children,
+    delete the name node.
+  -->
+  <xsl:template match="mods:name[mods:displayForm='']
+                               [not(mods:namePart[@type='given']) and not(mods:namePart[@type='family'])]
+                               [mods:role/mods:roleTerm='Thesis advisor' or mods:role/mods:roleTerm='Committee member']"/>
   <!-- if there are any empty 'type' attributes (@type), ignore them -->
   <xsl:template match="@type[.='']"/>
   <!-- if no supplemental files are attached in the initial form -->
