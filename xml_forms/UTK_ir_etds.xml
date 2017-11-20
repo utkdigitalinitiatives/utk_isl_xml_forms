@@ -408,7 +408,7 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <description>Optional: If you have an ORCID iD, enter your 16 digit ORCID in the following format: xxxx-xxxx-xxxx-xxxx. More information at &lt;a href="http://orcid.org"&gt;orcid.org&lt;/a&gt;.</description>
+              <description>Optional: If you have an ORCID iD, enter your 16 digit ORCID in the following format: xxxx-xxxx-xxxx-xxxx. If not, leave this box empty. More information at &lt;a href="http://orcid.org"&gt;orcid.org&lt;/a&gt;.</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -889,13 +889,13 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>What do we want here?</description>
+                  <description>Enter first name and, if used, middle name or initial. Do not include honorifics or titles such as &#8220;Dr.&#8221; or &#8220;PhD.&#8221; Examples: Stephen G. or Ruth Bader.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>TRUE</required>
                   <resizable>FALSE</resizable>
-                  <title>Advisor/Major Professor First Name/Given Name</title>
+		  <title>ADVISOR/MAJOR PROFESSOR FIRST NAME/GIVEN NAME</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -925,13 +925,13 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>What doe we want here?</description>
+                  <description>Enter family name or last name. Examples: Breyer or Ginsburg.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>TRUE</required>
                   <resizable>FALSE</resizable>
-                  <title>Advisor/Major Professor Last Name/Family Name</title>
+		  <title>ADVISOR/MAJOR PROFESSOR LAST NAME/FAMILY NAME</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -961,12 +961,13 @@
                   <access>TRUE</access>
                   <collapsed>TRUE</collapsed>
                   <collapsible>TRUE</collapsible>
+		  <description>Enter suffix. Example: Jr. </description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Advisor/Major Professor Suffix</title>
+		  <title>ADVISOR/MAJOR PROFESSOR SUFFIX</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -1118,13 +1119,13 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>What do we want here?</description>
+                  <description>Enter first name and, if used, middle name or initial. Do not include honorifics or titles such as &#8220;Dr.&#8221; or &#8220;PhD.&#8221; Examples: Stephen G. or Ruth Bader.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>TRUE</required>
                   <resizable>FALSE</resizable>
-                  <title>Committee Member First Name/Given Name</title>
+		  <title>COMMITTEE MEMBER FIRST NAME/GIVEN NAME</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -1154,13 +1155,13 @@
                   <access>TRUE</access>
                   <collapsed>FALSE</collapsed>
                   <collapsible>FALSE</collapsible>
-                  <description>What doe we want here?</description>
+                  <description>Enter family name or last name. Examples: Breyer or Ginsburg.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>TRUE</required>
                   <resizable>FALSE</resizable>
-                  <title>Committee Member Last Name/Family Name</title>
+		  <title>COMMITTEE MEMBER LAST NAME/FAMILY NAME</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
@@ -1190,12 +1191,13 @@
                   <access>TRUE</access>
                   <collapsed>TRUE</collapsed>
                   <collapsible>TRUE</collapsible>
+		  <description>Enter suffix. Example: Jr.</description>
                   <disabled>FALSE</disabled>
                   <executes_submit_callback>FALSE</executes_submit_callback>
                   <multiple>FALSE</multiple>
                   <required>FALSE</required>
                   <resizable>FALSE</resizable>
-                  <title>Committee Member Suffix</title>
+                  <title>COMMITTEE MEMBER SUFFIX</title>
                   <tree>TRUE</tree>
                   <actions>
                     <create>
