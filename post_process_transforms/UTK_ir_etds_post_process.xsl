@@ -32,7 +32,7 @@
                                 [mods:namePart[@type='given']='' and mods:namePart[@type='family']='']
                                 [mods:role/mods:roleTerm='Thesis advisor' or mods:role/mods:roleTerm='Committee member']"/>
   <!--
-    if a thesis advisor or committee member is added but for some reason has a displayForm but not the namePart children,
+    if a thesis advisor or committee member is added but for some reason has a displayForm but not the following namePart siblings,
     delete the name node.
   -->
   <xsl:template match="mods:name[mods:displayForm='']
