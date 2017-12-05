@@ -14,6 +14,7 @@
 
   <xsl:param name="date-in" select="''"/>
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqurstuv'"/>
+  <xsl:variable name="vDisciplines" select="document('trace-disciplines-list-comp.xml')"/>
 
   <!-- identity transform -->
   <xsl:template match="@*|node()">
