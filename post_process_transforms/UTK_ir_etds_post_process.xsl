@@ -15,6 +15,7 @@
   <xsl:param name="date-in" select="''"/>
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqurstuv'"/>
   <xsl:variable name="vDisciplines" select="document('trace-disciplines-list-comp.xml')"/>
+  <xsl:variable name="vDegreeDisc" select="/mods:mods/mods:extension/etd:degree/etd:discipline"/>
 
   <!-- identity transform -->
   <xsl:template match="@*|node()">
@@ -58,6 +59,54 @@
   <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (starts-with(.,'http://orcid.org'))]">
     <xsl:copy>
       <xsl:apply-templates/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!--
+    processing affiliation elements. there will only ever be six:
+    affiliation[1] = department
+    affiliation[2] = department
+    affiliation[3] = center
+    affiliation[4] = center
+    affiliation[5] = college
+    affiliation[6] = university
+  -->
+  <xsl:template match="mods:affiliation[1][.='']">
+    <xsl:copy>
+      <xsl:value-of select="$vDisciplines//entry[@discipline=$vDegreeDisc]/@dept"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="mods:affiliation[2][.='']">
+    <xsl:variable name="affiliation-1" select="preceding-sibling::mods:affiliation[1]"/>
+    <xsl:if test="$affiliation-1[not(.='') and not(.=$vDisciplines//@discipline)]">
+      <xsl:copy>
+        <xsl:value-of select="$vDisciplines//entry[@discipline=$vDegreeDisc]/@dept"/>
+      </xsl:copy>
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="mods:affiliation[3][.='']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="mods:affiliation[4][.='']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="mods:affiliation[5][.='']">
+    <xsl:copy>
+      <xsl:value-of select="$vDisciplines//entry[@discipline=$vDegreeDisc]/@college"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="mods:affiliation[6][.='']">
+    <xsl:copy>
+      <xsl:value-of select="'University of Tennessee'"/>
     </xsl:copy>
   </xsl:template>
 
