@@ -117,7 +117,6 @@
   <!-- if affiliation[5] is empty, copy the element and add the appropriate college -->
   <xsl:template match="mods:affiliation[5][.='']">
     <xsl:copy>
-      <xsl:value-of select="$vDisciplines//entry[@discipline=$vDegreeDisc]/@college"/>
       <xsl:choose>
         <xsl:when test="$vDegreeDisc=$vDisciplines//@discipline[../@college!='Intercollegiate']">
           <xsl:value-of select="$vDisciplines//@college[../@discipline=$vDegreeDisc]"/>
@@ -127,10 +126,10 @@
     </xsl:copy>
   </xsl:template>
 
-  <!-- if affiliation[6] is empty, copy the element and add UT -->
+  <!-- if affiliation[6] is empty, copy the element and add the value of etd:grantor -->
   <xsl:template match="mods:affiliation[6][.='']">
     <xsl:copy>
-      <xsl:value-of select="'University of Tennessee'"/>
+      <xsl:value-of select="/mods:mods/mods:extension/etd:degree/etd:grantor"/>
     </xsl:copy>
   </xsl:template>
 
