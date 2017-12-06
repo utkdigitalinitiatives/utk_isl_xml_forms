@@ -118,6 +118,12 @@
   <xsl:template match="mods:affiliation[5][.='']">
     <xsl:copy>
       <xsl:value-of select="$vDisciplines//entry[@discipline=$vDegreeDisc]/@college"/>
+      <xsl:choose>
+        <xsl:when test="$vDegreeDisc=$vDisciplines//@discipline[../@college!='Intercollegiate']">
+          <xsl:value-of select="$vDisciplines//@college[../@discipline=$vDegreeDisc]"/>
+        </xsl:when>
+        <xsl:otherwise/>
+      </xsl:choose>
     </xsl:copy>
   </xsl:template>
 
