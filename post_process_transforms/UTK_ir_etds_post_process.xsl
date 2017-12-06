@@ -71,10 +71,12 @@
     affiliation[5] = college
     affiliation[6] = university
   -->
-  <!-- if the affiliation[1] is empty, copy the element and add the appropriate dept -->
+  <!--
+    if the affiliation[1] is empty, copy the element and add the appropriate dept, *if*
+    dept is not empty.
+  -->
   <xsl:template match="mods:affiliation[1][.='']">
     <xsl:copy>
-      <!--<xsl:value-of select="$vDisciplines//@dept[not(.='')][../@discipline=$vDegreeDisc]"/>-->
       <xsl:choose>
         <xsl:when test="$vDegreeDisc=$vDisciplines//@discipline[../@dept!='']">
           <xsl:value-of select="$vDisciplines//@dept[../@discipline=$vDegreeDisc]"/>
@@ -86,15 +88,10 @@
 
   <!--
     if affiliation[2] is empty, and affiliation[1] is not empty and
-    is *not* in the disciplines list then add the appropriate dept
+    is *not* in the disciplines list then add the appropriate dept.
   -->
   <xsl:template match="mods:affiliation[2][.='']">
     <xsl:variable name="affiliation-1" select="preceding-sibling::mods:affiliation[1]"/>
-    <!--<xsl:if test="$affiliation-1[not(.='') and not(.=$vDisciplines//@discipline)]">
-      <xsl:copy>
-        <xsl:value-of select="$vDisciplines//entry[@discipline=$vDegreeDisc]/@dept"/>
-      </xsl:copy>
-    </xsl:if>-->
     <xsl:copy>
       <xsl:choose>
         <xsl:when test="$affiliation-1[not(.='') and not(.=$vDisciplines//@discipline)]">
@@ -103,7 +100,7 @@
         <xsl:otherwise/>
       </xsl:choose>
     </xsl:copy>
-</xsl:template>
+  </xsl:template>
 
   <xsl:template match="mods:affiliation[3][.='']">
     <xsl:copy>
