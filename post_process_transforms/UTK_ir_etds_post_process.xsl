@@ -14,6 +14,8 @@
 
   <xsl:param name="date-in" select="''"/>
   <xsl:variable name="lowercase" select="'abcdefghijklmnopqurstuv'"/>
+  <xsl:variable name="vDisciplines" select="document('trace-disciplines-list-comp.xml')"/>
+  <xsl:variable name="vDegreeDisc" select="/mods:mods/mods:extension/etd:degree/etd:discipline"/>
 
   <!-- identity transform -->
   <xsl:template match="@*|node()">
@@ -57,6 +59,77 @@
   <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (starts-with(.,'http://orcid.org'))]">
     <xsl:copy>
       <xsl:apply-templates/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!--
+    processing affiliation elements. there will only ever be six:
+    affiliation[1] = department
+    affiliation[2] = department
+    affiliation[3] = center
+    affiliation[4] = center
+    affiliation[5] = college
+    affiliation[6] = university
+  -->
+  <!--
+    if the affiliation[1] is empty, copy the element and add the appropriate dept, *if*
+    dept is not empty.
+  -->
+  <xsl:template match="mods:affiliation[1][.='']">
+    <xsl:copy>
+      <xsl:choose>
+        <xsl:when test="$vDegreeDisc=$vDisciplines//@discipline[../@dept!='']">
+          <xsl:value-of select="$vDisciplines//@dept[../@discipline=$vDegreeDisc]"/>
+        </xsl:when>
+        <xsl:otherwise/>
+      </xsl:choose>
+    </xsl:copy>
+  </xsl:template>
+
+  <!--
+    if affiliation[2] is empty, and affiliation[1] is not empty and
+    is *not* in the disciplines list then add the appropriate dept.
+  -->
+  <xsl:template match="mods:affiliation[2][.='']">
+    <xsl:variable name="affiliation-1" select="preceding-sibling::mods:affiliation[1]"/>
+    <xsl:copy>
+      <xsl:choose>
+        <xsl:when test="$affiliation-1[not(.='') and not(.=$vDisciplines//@discipline)]">
+          <xsl:value-of select="$vDisciplines//@dept[not(.='')][../@discipline=$vDegreeDisc]"/>
+        </xsl:when>
+        <xsl:otherwise/>
+      </xsl:choose>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="mods:affiliation[3][.='']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="mods:affiliation[4][.='']">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- if affiliation[5] is empty, copy the element and add the appropriate college -->
+  <xsl:template match="mods:affiliation[5][.='']">
+    <xsl:copy>
+      <xsl:choose>
+        <xsl:when test="$vDegreeDisc=$vDisciplines//@discipline[../@college!='Intercollegiate']">
+          <xsl:value-of select="$vDisciplines//@college[../@discipline=$vDegreeDisc]"/>
+        </xsl:when>
+        <xsl:otherwise/>
+      </xsl:choose>
+    </xsl:copy>
+  </xsl:template>
+
+  <!-- if affiliation[6] is empty, copy the element and add the value of etd:grantor -->
+  <xsl:template match="mods:affiliation[6][.='']">
+    <xsl:copy>
+      <xsl:value-of select="/mods:mods/mods:extension/etd:degree/etd:grantor"/>
     </xsl:copy>
   </xsl:template>
 
