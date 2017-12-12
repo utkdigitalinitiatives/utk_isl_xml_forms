@@ -178,12 +178,12 @@
               <path>self::node()</path>
               <context>parent</context>
               <schema/>
-              <type>xml</type>
+              <type>element</type>
               <prefix>NULL</prefix>
-              <value>&lt;name displayLabel="Depositor"&gt;&lt;/name&gt;</value>
+              <value>name</value>
             </create>
             <read>
-              <path>mods:name/mods:role[mods:roleTerm = 'Depositor']/..</path>
+              <path>mods:name[mods:role[mods:roleTerm = 'Depositor']]</path>
               <context>parent</context>
             </read>
             <update>NULL</update>
@@ -215,7 +215,7 @@
                   <value>&lt;namePart type="given"&gt;%value%&lt;/namePart&gt;</value>
                 </create>
                 <read>
-                  <path>mods:namePart[type="given"]</path>
+                  <path>mods:namePart[@type="given"]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -251,7 +251,7 @@
                   <value>&lt;namePart type="family"&gt;%value%&lt;/namePart&gt;</value>
                 </create>
                 <read>
-                  <path>mods:namePart[type="family"]</path>
+                  <path>mods:namePart[@type="family"]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -358,7 +358,7 @@
                   <value>&lt;namePart type="termsOfAddress"&gt;%value%&lt;/namePart&gt;</value>
                 </create>
                 <read>
-                  <path>mods:namePart[type="termsOfAddress"]</path>
+                  <path>mods:namePart[@type="termsOfAddress"]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -394,7 +394,7 @@
                   <value>valueURI</value>
                 </create>
                 <read>
-                  <path>mods:name/[@valueURI]</path>
+                  <path>@valueURI</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -429,7 +429,7 @@
                   <value>affiliation</value>
                 </create>
                 <read>
-                  <path>affiliation</path>
+                  <path>mods:affiliation[1]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -464,7 +464,7 @@
                   <value>affiliation</value>
                 </create>
                 <read>
-                  <path>affiliation</path>
+                  <path>mods:affiliation[2]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -491,7 +491,7 @@
               <tree>TRUE</tree>
               <actions>
                 <create>
-                  <path>self::node</path>
+                  <path>self::node()</path>
                   <context>parent</context>
                   <schema/>
                   <type>element</type>
@@ -499,7 +499,7 @@
                   <value>affiliation</value>
                 </create>
                 <read>
-                  <path>affiliation</path>
+                  <path>mods:affiliation[3]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -526,7 +526,7 @@
               <tree>TRUE</tree>
               <actions>
                 <create>
-                  <path>self::node</path>
+                  <path>self::node()</path>
                   <context>parent</context>
                   <schema/>
                   <type>element</type>
@@ -534,7 +534,7 @@
                   <value>affiliation</value>
                 </create>
                 <read>
-                  <path>affiliation</path>
+                  <path>mods:affiliation[4]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -620,7 +620,7 @@
                       <value>&lt;namePart type="given"&gt;%value%&lt;/namePart&gt;</value>
                     </create>
                     <read>
-                      <path>mods:namePart[type="given"]</path>
+                      <path>mods:namePart[@type="given"]</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -727,7 +727,7 @@
                       <value>&lt;namePart type="family"&gt;%value%&lt;/namePart&gt;</value>
                     </create>
                     <read>
-                      <path>mods:namePart[type="family"]</path>
+                      <path>mods:namePart[@type="family"]</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -763,7 +763,7 @@
                       <value>&lt;namePart type="termsOfAddress"&gt;%value%&lt;/namePart&gt;</value>
                     </create>
                     <read>
-                      <path>mods:namePart[type="termsOfAddress"]</path>
+                      <path>mods:namePart[@type="termsOfAddress"]</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -1139,14 +1139,6 @@
                     </properties>
                     <children/>
                   </element>
-                  <element name="new element">
-                    <properties>
-                      <type>textfield</type>
-                      <access>TRUE</access>
-                      <tree>TRUE</tree>
-                    </properties>
-                    <children/>
-                  </element>
                 </children>
               </element>
               <element name="location">
@@ -1272,7 +1264,7 @@
                       <value>&lt;note displayLabel="citation"&gt;%value%&lt;/note&gt;</value>
                     </create>
                     <read>
-                      <path>mods:note[@displayLabel=""]</path>
+                      <path>mods:note[@displayLabel="citation"]</path>
                       <context>parent</context>
                     </read>
                     <update>
@@ -1593,7 +1585,7 @@
               <value>&lt;note type="preferred citation"&gt;%value%&lt;/note&gt;</value>
             </create>
             <read>
-              <path>note[@type="preferred citation"]</path>
+              <path>mods:note[@type="preferred citation"]</path>
               <context>parent</context>
             </read>
             <update>
@@ -1660,7 +1652,7 @@
                   <value>&lt;dateCaptured point="start"&gt;%value%&lt;/dateCaptured&gt;</value>
                 </create>
                 <read>
-                  <path>dateCaptured[@point="start"]</path>
+                  <path>mods:dateCaptured[@point="start"]</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -1696,7 +1688,7 @@
                   <value>&lt;dateCaptured point="end"&gt;%value%&lt;/dateCaptured&gt;</value>
                 </create>
                 <read>
-                  <path>dateCaptured[@point="end"]</path>
+                  <path>mods:dateCaptured[@point="end"]</path>
                   <context>parent</context>
                 </read>
                 <update>
