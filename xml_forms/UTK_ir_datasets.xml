@@ -1620,7 +1620,7 @@
           <tree>TRUE</tree>
           <actions>
             <create>
-              <path/>
+              <path>self::node()</path>
               <context>parent</context>
               <schema/>
               <type>element</type>
