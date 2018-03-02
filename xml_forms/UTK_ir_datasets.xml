@@ -399,7 +399,7 @@
                 </read>
                 <update>
                   <path>self::node()</path>
-                  <context>parent</context>
+                  <context>self</context>
                 </update>
                 <delete>NULL</delete>
               </actions>
