@@ -163,7 +163,9 @@
       </xsl:if>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
-    <xsl:if test="not(following-sibling::mods:recordInfo[@displayLabel='Submission'])">
+    <xsl:if test="not(following-sibling::mods:recordInfo[@displayLabel='Submission']) and following-sibling::mods:recordInfo[not(@*)]">
+      <xsl:variable name="vISNI" select="following-sibling::mods:recordInfo[not(@*)]/mods:recordContentSource/@authority"/>
+      <xsl:variable name="vURI" select="following-sibling::mods:recordInfo[not(@*)]/mods:recordContentSource/@valueURI"/>
       <mods:recordInfo displayLabel="Submission">
         <mods:recordCreationDate encoding="w3cdtf">
           <xsl:value-of select="$date-in"/>
@@ -171,9 +173,20 @@
         <mods:recordChangeDate keyDate="yes" encoding="w3cdtf">
           <xsl:value-of select="$date-in"/>
         </mods:recordChangeDate>
+        <mods:recordContentSource>
+          <xsl:attribute name="authority"><xsl:value-of select="$vISNI"/></xsl:attribute>
+          <xsl:attribute name="valueURI"><xsl:value-of select="$vURI"/></xsl:attribute>
+          <xsl:value-of select="'University of Tennessee (Knoxville)'"/>
+        </mods:recordContentSource>
+        <mods:recordOrigin>Generated via the UTK_ir_history Form in general compliance with the MODS Guidelines (version 3.5).</mods:recordOrigin>
       </mods:recordInfo>
     </xsl:if>
   </xsl:template>
+
+  <!--
+    *if* there is a /mods:recordInfo[not(@*)], then ignore it
+  -->
+  <xsl:template match="mods:recordInfo[not(@*)]"/>
 
   <!--
     *if* there is a mods:originInfo/mods:dateCreated, update the value.
