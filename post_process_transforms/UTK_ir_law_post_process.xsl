@@ -13,9 +13,6 @@
   <xsl:strip-space elements="*"/>
 
   <xsl:param name="date-in" select="''"/>
-  <xsl:variable name="lowercase" select="'abcdefghijklmnopqurstuv'"/>
-  <xsl:variable name="vDisciplines" select="document('trace-disciplines-list-comp.xml')"/>
-  <xsl:variable name="vDegreeDisc" select="/mods:mods/mods:extension/etd:degree/etd:discipline"/>
 
   <!-- identity transform -->
   <xsl:template match="@*|node()">
@@ -25,57 +22,10 @@
   </xsl:template>
 
   <!-- if any of the following elements are empty, drop them from the transform. this list could grow. -->
-  <!--
-    if a thesis advisor or committee member is added via the form without a namePart[@type='given' AND 'family'] AND
-    has a role/roleTerm='Thesis advisor' or 'Committee member'.
-    MODS added via the form automatically gets an empty mods:displayForm.
-  -->
-  <xsl:template match="mods:name[mods:displayForm='']
-                                [mods:namePart[@type='given']='' and mods:namePart[@type='family']='']
-                                [mods:role/mods:roleTerm='Thesis advisor' or mods:role/mods:roleTerm='Committee member']"/>
-  <!--
-    if a thesis advisor or committee member is added but for some reason has a displayForm but not the following namePart siblings,
-    delete the name node.
-  -->
-  <xsl:template match="mods:name[mods:displayForm='']
-                               [not(mods:namePart[@type='given']) and not(mods:namePart[@type='family'])]
-                               [mods:role/mods:roleTerm='Thesis advisor' or mods:role/mods:roleTerm='Committee member']"/>
   <!-- if there are any empty 'type' attributes (@type), ignore them -->
   <xsl:template match="@type[.='']"/>
   <!-- if no supplemental files are attached in the initial form -->
   <xsl:template match="mods:relatedItem[@type='constituent'][mods:titleInfo[mods:title='']][mods:abstract='']"/>
-  <!-- if no namePart[@type='termsOfAddress'] is present, drop the empty element -->
-  <xsl:template match="mods:name[@type='personal']/mods:namePart[@type='termsOfAddress'][.='']"/>
-
-  <!-- *if* the valueURI is empty, copy the name element, but remove all attributes but @type='personal' -->
-  <xsl:template match="mods:name[@authority='orcid'][@valueURI='']">
-    <xsl:copy>
-      <xsl:apply-templates select="@type"/>
-      <xsl:apply-templates/>
-    </xsl:copy>
-  </xsl:template>
-
-  <!--
-    *if* the @valueURI attached to mods:name[@authority='orcid'] is not
-    empty AND does not start with 'http://orcid.org', process it separately
-    in this template. this overrides the default identity transform.
-  -->
-  <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (not(starts-with(.,'http://orcid.org')))]">
-    <xsl:attribute name="valueURI">
-        <xsl:value-of select="concat('http://orcid.org/', .)"/>
-    </xsl:attribute>
-  </xsl:template>
-
-  <!--
-    *if* the valueURI attached to mods:name[@authority='orcid'] is not empty
-    AND starts with 'http://orcid.org', use the default template rules to copy
-    the valueURI attribute.
-  -->
-  <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (starts-with(.,'http://orcid.org'))]">
-    <xsl:copy>
-      <xsl:apply-templates/>
-    </xsl:copy>
-  </xsl:template>
 
   <!--
     processing affiliation elements. there will only ever be six:
