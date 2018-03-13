@@ -50,6 +50,8 @@
         <mods:recordChangeDate keyDate="yes" encoding="w3cdtf">
           <xsl:value-of select="$date-in"/>
         </mods:recordChangeDate>
+        <mods:recordOrigin>Generated via the UTK_ir_law.xml Form in general compliance to the MODS Guidelines (version 3.5).</mods:recordOrigin>
+        <mods:recordContentSource>University of Tennessee, Knoxville Libraries</mods:recordContentSource>
       </mods:recordInfo>
     </xsl:if>
   </xsl:template>
