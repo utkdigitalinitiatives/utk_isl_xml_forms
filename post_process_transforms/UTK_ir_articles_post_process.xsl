@@ -172,6 +172,8 @@
           <xsl:value-of select="$date-in"/>
         </mods:recordChangeDate>
       </mods:recordInfo>
+      <mods:recordOrigin>Generated via UTK_ir_articles.xml Form in general compliance to the MODS Guidelines (version 3.5).</mods:recordOrigin>
+      <mods:recordContentSource>University of Tenneessee, Knoxville Libraries</mods:recordContentSource>
     </xsl:if>
   </xsl:template>
 
