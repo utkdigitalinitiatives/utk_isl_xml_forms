@@ -155,7 +155,12 @@
   <!-- if affiliation[6] is empty, copy the element and add the value of etd:grantor -->
   <xsl:template match="mods:affiliation[6][.='']">
     <xsl:copy>
-      <xsl:value-of select="/mods:mods/mods:extension/etd:degree/etd:grantor"/>
+      <xsl:choose>
+        <xsl:when test="/mods:mods/mods:extension/etd:degree/etd:grantor">
+          <xsl:value-of select="/mods:mods/mods:extension/etd:degree/etd:grantor"/>
+        </xsl:when>
+        <xsl:otherwise/>
+      </xsl:choose>
     </xsl:copy>
   </xsl:template>
 
