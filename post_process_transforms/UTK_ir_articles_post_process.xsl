@@ -215,11 +215,6 @@
   </xsl:template>
 
   <!--
-    *if* there is a pre-existing mods:genre[@authority='coar'] ignore it.
-  -->
-  <xsl:template match="mods:genre[@authority='coar']"/>
-
-  <!--
     this template updates the mods:recordInfo element with a new mods:recordDateChange for each edit of the MODS datastream
   -->
   <xsl:template match="mods:recordInfo[@displayLabel='Submission']/mods:recordChangeDate[@keyDate='yes'][@encoding='w3cdtf'][position() = last()]">
