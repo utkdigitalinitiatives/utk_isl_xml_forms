@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<mods:mods xmlns:mods="http://www.loc.gov/mods/v3" xmlns="http://www.loc.gov/mods/v3" xmlns:etd="http://www.ndltd.org/standards/metadata/etdms/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-5.xsd" version="3.5">
+  <mods:titleInfo>
+    <mods:title>test articles form</mods:title>
+  </mods:titleInfo>
+  <mods:name type="personal" valueURI="1234-1234-1234-1234">
+    <mods:namePart type="given">User</mods:namePart>
+    <mods:namePart type="family">A</mods:namePart>
+    <mods:namePart type="termsOfAddress">Ms</mods:namePart>
+    <mods:role>
+      <mods:roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/cre">Creator</mods:roleTerm>
+    </mods:role>
+    <mods:affiliation>French</mods:affiliation>
+    <mods:affiliation/>
+    <mods:affiliation/>
+    <mods:affiliation/>
+    <mods:affiliation/>
+    <mods:affiliation/>
+  </mods:name>
+  <mods:name type="corporate">
+    <mods:namePart>Corporal Creator</mods:namePart>
+    <mods:role>
+      <mods:roleTerm authority="marcrelator" type="text" valueURI="http://id.loc.gov/vocabulary/relators/cre">Creator</mods:roleTerm>
+    </mods:role>
+  </mods:name>
+  <mods:originInfo>
+    <mods:dateIssued keyDate="yes">2019-01-02</mods:dateIssued>
+    <mods:edition>Pre-print</mods:edition>
+  </mods:originInfo>
+  <mods:language>
+    <mods:languageTerm authority="iso639-2b" type="code">eng</mods:languageTerm>
+  </mods:language>
+  <mods:abstract>abstract text</mods:abstract>
+  <mods:note displayLabel="Submitted Comment">comments text</mods:note>
+  <mods:physicalDescription>
+    <mods:form>article</mods:form>
+  </mods:physicalDescription>
+  <mods:subject>
+    <mods:topic>keyword1</mods:topic>
+  </mods:subject>
+  <mods:subject>
+    <mods:topic>keyword2</mods:topic>
+  </mods:subject>
+  <mods:subject>
+    <mods:topic>keyword3</mods:topic>
+  </mods:subject>
+  <mods:recordInfo>
+    <mods:recordContentSource authority="isni" valueURI="http://www.isni.org/isni/0000000123151184">University of Tennessee (Knoxville)</mods:recordContentSource>
+  </mods:recordInfo>
+  <mods:note displayLabel="citation">preferred citation text</mods:note>
+  <mods:identifier type="doi">d:oi/1234/abcdef456</mods:identifier>
+</mods:mods>
