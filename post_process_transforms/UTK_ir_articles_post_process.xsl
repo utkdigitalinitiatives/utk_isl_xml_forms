@@ -48,7 +48,7 @@
   <xsl:template match="mods:name[@type='personal']/mods:namePart[@type='termsOfAddress'][.='']"/>
 
   <!-- *if* the valueURI is empty, copy the name element, but remove all attributes but @type='personal' -->
-  <xsl:template match="mods:name[@authority='orcid'][@valueURI='']">
+  <xsl:template match="mods:name[@type='personal'][@valueURI='']">
     <xsl:copy>
       <xsl:apply-templates select="@type"/>
       <xsl:apply-templates/>
@@ -58,9 +58,20 @@
   <!--
     *if* the @valueURI attached to mods:name[@authority='orcid'] is not
     empty AND does not start with 'http://orcid.org', process it separately
-    in this template. this overrides the default identity transform.
+    in this template.
+
+    *additionally* this template *adds* an @authority='orcid' AND
+    a @authorityURI='...orcid...'.
+
+    this overrides the default identity transform.
   -->
-  <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (not(starts-with(.,'http://orcid.org')))]">
+  <xsl:template match="mods:name[@type='personal']/@valueURI[(not(.='')) and (not(starts-with(.,'http://orcid.org')))]">
+    <xsl:attribute name="authority">
+      <xsl:value-of select="'orcid'"/>
+    </xsl:attribute>
+    <xsl:attribute name="authorityURI">
+      <xsl:value-of select="'http://id.loc.gov/vocabulary/identifiers/orcid.html'"/>
+    </xsl:attribute>
     <xsl:attribute name="valueURI">
         <xsl:value-of select="concat('http://orcid.org/', .)"/>
     </xsl:attribute>
