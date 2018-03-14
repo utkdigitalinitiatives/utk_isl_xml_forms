@@ -206,12 +206,6 @@
     <xsl:copy>
       <xsl:apply-templates select="@*|node()"/>
     </xsl:copy>
-    <xsl:if test="(/mods:mods/mods:extension/etd:degree/etd:level[starts-with(., 'Doctoral')])">
-      <mods:genre authority="coar" valueURI="http://purl.org/coar/resource_type/c_db06">doctoral thesis</mods:genre>
-    </xsl:if>
-    <xsl:if test="(/mods:mods/mods:extension/etd:degree/etd:level[starts-with(., 'Masters')])">
-      <mods:genre authority="coar" valueURI="http://purl.org/coar/resource_type/c_bdcc">masters thesis</mods:genre>
-    </xsl:if>
   </xsl:template>
 
   <!--
