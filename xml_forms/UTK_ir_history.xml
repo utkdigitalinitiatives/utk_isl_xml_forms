@@ -5,6 +5,7 @@
     <schema_uri>http://www.loc.gov/standards/mods/v3/mods-3-5.xsd</schema_uri>
     <namespaces default="http://www.loc.gov/mods/v3">
       <namespace prefix="etd">http://www.ndltd.org/standards/metadata/etdms/1.0</namespace>
+      <namespace prefix="mods">http://www.loc.gov/mods/v3</namespace>
       <namespace prefix="xsi">http://www.w3.org/2001/XMLSchema-instance</namespace>
       <namespace prefix="xlink">http://www.w3.org/1999/xlink</namespace>
       <namespace prefix="xs">http://www.w3.org/2001/XMLSchema</namespace>
