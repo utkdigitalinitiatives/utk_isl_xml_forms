@@ -492,9 +492,10 @@
                 <index key="2018-12">December 2018</index>
                 <index key="2019-05">May 2019</index>
                 <index key="2019-08">August 2019</index>
-                <index key="2020-12">December 2020</index>
+		<index key="2019-12">December 2019</index>      
                 <index key="2020-05">May 2020</index>
                 <index key="2020-08">August 2020</index>
+	        <index key="2020-12">December 2020</index>
               </options>
               <required>TRUE</required>
               <resizable>FALSE</resizable>
