@@ -47,7 +47,6 @@
   <!-- if no namePart[@type='termsOfAddress'] is present, drop the empty element -->
   <xsl:template match="mods:name[@type='personal']/mods:namePart[@type='termsOfAddress'][.='']"/>
 
-  <!-- TEST BDS TEMPLATE CHANGES FOR TRAC-685 -->
 
 
 <xsl:template match="mods:name[@authority='orcid']">
@@ -100,43 +99,7 @@
     </xsl:choose>
 </xsl:template>
 
-  <!-- END TEST BDS TEMPLATE CHANGES FOR TRAC-685 -->
 
-  <!-- *if* the valueURI is empty, copy the name element, but remove all attributes but @type='personal' -->
-  <!--
-  <xsl:template match="mods:name[@authority='orcid'][@valueURI='']">
-    <xsl:copy>
-      <xsl:apply-templates select="@type"/>
-      <xsl:apply-templates/>
-    </xsl:copy>
-  </xsl:template>
-  -->
-
-  <!--
-    *if* the @valueURI attached to mods:name[@authority='orcid'] is not
-    empty AND does not start with 'http://orcid.org', process it separately
-    in this template. this overrides the default identity transform.
-  -->
-  <!--
-  <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (not(starts-with(.,'http://orcid.org')))]">
-    <xsl:attribute name="valueURI">
-        <xsl:value-of select="concat('http://orcid.org/', .)"/>
-    </xsl:attribute>
-  </xsl:template>
-  -->
-
-  <!--
-    *if* the valueURI attached to mods:name[@authority='orcid'] is not empty
-    AND starts with 'http://orcid.org', use the default template rules to copy
-    the valueURI attribute.
-  -->
-  <!--
-  <xsl:template match="mods:name[@authority='orcid']/@valueURI[(not(.='')) and (starts-with(.,'http://orcid.org'))]">
-    <xsl:copy>
-      <xsl:apply-templates/>
-    </xsl:copy>
-  </xsl:template>
-  -->
 
   <!--
     processing affiliation elements. there will only ever be six:
