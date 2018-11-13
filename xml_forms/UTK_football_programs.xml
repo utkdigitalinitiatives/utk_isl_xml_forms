@@ -496,14 +496,8 @@ Example:  1979 Football Guide</description>
               <prefix>NULL</prefix>
               <value>&lt;language&gt;&lt;languageTerm authority="iso639-2b" type="code"&gt;eng&lt;/languageTerm&gt;&lt;/language&gt;</value>
             </create>
-            <read>
-              <path>mods:language/child::*</path>
-              <context>parent</context>
-            </read>
-            <update>
-              <path>self::node()</path>
-              <context>self</context>
-            </update>
+            <read>NULL</read>
+            <update>NULL</update>
             <delete>NULL</delete>
           </actions>
         </properties>
@@ -598,14 +592,8 @@ Example:  1979 Football Guide</description>
     &lt;/languageOfCataloging&gt;
   &lt;/recordInfo&gt;</value>
             </create>
-            <read>
-              <path>mods:recordInfo/child::*</path>
-              <context>parent</context>
-            </read>
-            <update>
-              <path>self::node()</path>
-              <context>self</context>
-            </update>
+            <read>NULL</read>
+            <update>NULL</update>
             <delete>NULL</delete>
           </actions>
         </properties>
