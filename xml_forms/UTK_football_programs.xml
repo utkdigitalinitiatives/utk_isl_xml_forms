@@ -879,7 +879,7 @@ Example:  1979 Football Guide</description>
                   <value>&lt;subject&gt;&lt;name&gt;&lt;/name&gt;&lt;/subject&gt;</value>
                 </create>
                 <read>
-                  <path>mods:subject[mods:name]/child::node()</path>
+                  <path>mods:subject[not(@valueURI="http://id.loc.gov/authorities/names/n90646627")][mods:name]/child::node()</path>
                   <context>parent</context>
                 </read>
                 <update>
@@ -1041,6 +1041,34 @@ Example:  1979 Football Guide</description>
             </children>
           </element>
         </children>
+      </element>
+      <element name="hiddenSubject">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;subject authority="naf" valueURI="http://id.loc.gov/authorities/names/n90646627"&gt;&lt;name&gt;&lt;namePart&gt;Tennessee Volunteers (Football team)&lt;/namePart&gt;&lt;/name&gt;&lt;/subject&gt;</value>
+            </create>
+            <read>NULL</read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
       </element>
     </children>
   </form>
