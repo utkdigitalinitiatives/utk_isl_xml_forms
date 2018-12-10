@@ -333,40 +333,6 @@ Example:  1979 Football Guide</description>
           </element>
         </children>
       </element>
-      <element name="hiddenAcceessCondition">
-        <properties>
-          <type>hidden</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>xml</type>
-              <prefix>NULL</prefix>
-              <value>&lt;accessCondition type="use and reproduction" xlink:href="http://rightsstatements.org/vocab/InC/1.0/"&gt;In Copyright&lt;/accessCondition&gt;</value>
-            </create>
-            <read>
-              <path>mods:accessCondition</path>
-              <context>parent</context>
-            </read>
-            <update>
-              <path>self::node()</path>
-              <context>self</context>
-            </update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children/>
-      </element>
       <element name="identifierFilename">
         <properties>
           <type>textfield</type>
@@ -505,43 +471,6 @@ Example:  1979 Football Guide</description>
         </properties>
         <children/>
       </element>
-      <element name="recordInfo">
-        <properties>
-          <type>hidden</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>xml</type>
-              <prefix>NULL</prefix>
-              <value>&lt;recordInfo&gt;
-    &lt;recordContentSource&gt;University of Tennessee, Knoxville. Libraries&lt;/recordContentSource&gt;
-    &lt;recordOrigin&gt;Created and edited in general conformance to MODS Guidelines (Version 3.5).&lt;/recordOrigin&gt;
-    &lt;languageOfCataloging&gt;
-      &lt;languageTerm authority="iso639-2b" type="code"&gt;eng&lt;/languageTerm&gt;
-    &lt;/languageOfCataloging&gt;
-  &lt;/recordInfo&gt;</value>
-            </create>
-            <read>
-              <path>mods:recordInfo/descendant::*</path>
-              <context>parent</context>
-            </read>
-            <update>NULL</update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children/>
-      </element>
       <element name="typeOfResource">
         <properties>
           <type>hidden</type>
@@ -571,44 +500,6 @@ Example:  1979 Football Guide</description>
               <path>self::node()</path>
               <context>self</context>
             </update>
-            <delete>NULL</delete>
-          </actions>
-        </properties>
-        <children/>
-      </element>
-      <element name="hiddenProject">
-        <properties>
-          <type>hidden</type>
-          <access>TRUE</access>
-          <collapsed>FALSE</collapsed>
-          <collapsible>FALSE</collapsible>
-          <disabled>FALSE</disabled>
-          <executes_submit_callback>FALSE</executes_submit_callback>
-          <multiple>FALSE</multiple>
-          <required>FALSE</required>
-          <resizable>FALSE</resizable>
-          <tree>TRUE</tree>
-          <actions>
-            <create>
-              <path>self::node()</path>
-              <context>parent</context>
-              <schema/>
-              <type>xml</type>
-              <prefix>NULL</prefix>
-              <value>&lt;relatedItem displayLabel="Project" type="host"&gt;
-    &lt;titleInfo&gt;
-        &lt;title&gt;The University of Tennessee, Knoxville Football Programs.&lt;/title&gt;
-    &lt;/titleInfo&gt;
-    &lt;location&gt;
-        &lt;url&gt;https://digital.lib.utk.edu/football_programs&lt;/url&gt;
-    &lt;/location&gt;
-&lt;/relatedItem&gt;</value>
-            </create>
-            <read>
-              <path>mods:relatedItem[@displayLabel="Project"]/descendant::*</path>
-              <context>parent</context>
-            </read>
-            <update>NULL</update>
             <delete>NULL</delete>
           </actions>
         </properties>
@@ -1070,6 +961,115 @@ Example:  1979 Football Guide</description>
               <context>parent</context>
             </read>
             <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
+      </element>
+      <element name="hiddenProject">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;relatedItem displayLabel="Project" type="host"&gt;
+                &lt;titleInfo&gt;
+                &lt;title&gt;The University of Tennessee, Knoxville Football Programs.&lt;/title&gt;
+                &lt;/titleInfo&gt;
+                &lt;location&gt;
+                &lt;url&gt;https://digital.lib.utk.edu/football_programs&lt;/url&gt;
+                &lt;/location&gt;
+                &lt;/relatedItem&gt;</value>
+            </create>
+            <read>
+              <path>mods:relatedItem[@displayLabel="Project"]/descendant::*</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
+      </element>
+      <element name="recordInfo">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;recordInfo&gt;
+                &lt;recordContentSource&gt;University of Tennessee, Knoxville. Libraries&lt;/recordContentSource&gt;
+                &lt;languageOfCataloging&gt;
+                &lt;languageTerm authority="iso639-2b" type="code"&gt;eng&lt;/languageTerm&gt;
+                &lt;/languageOfCataloging&gt;
+                &lt;recordOrigin&gt;Created and edited in general conformance to MODS Guidelines (Version 3.5).&lt;/recordOrigin&gt;
+                &lt;/recordInfo&gt;</value>
+            </create>
+            <read>
+              <path>mods:recordInfo/descendant::*</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
+      </element>
+      <element name="hiddenAcceessCondition">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;accessCondition type="use and reproduction" xlink:href="http://rightsstatements.org/vocab/InC/1.0/"&gt;In Copyright&lt;/accessCondition&gt;</value>
+            </create>
+            <read>
+              <path>mods:accessCondition</path>
+              <context>parent</context>
+            </read>
+            <update>
+              <path>self::node()</path>
+              <context>self</context>
+            </update>
             <delete>NULL</delete>
           </actions>
         </properties>
