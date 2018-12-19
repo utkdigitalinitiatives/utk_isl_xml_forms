@@ -96,8 +96,8 @@
           <access>TRUE</access>
           <collapsed>FALSE</collapsed>
           <collapsible>FALSE</collapsible>
-          <default_value>alum_YYYYmonth</default_value>
-          <description>Enter the filename of the digitized object. Replace the values below for the correct form (e.g. alum_1919january). </description>
+          <default_value>alum_YYYYseason</default_value>
+          <description>Enter the filename of the digitized object. Replace the values below for the correct form (e.g. alum_1919winter). </description>
           <disabled>FALSE</disabled>
           <executes_submit_callback>FALSE</executes_submit_callback>
           <multiple>FALSE</multiple>
@@ -114,7 +114,7 @@
               <value>&lt;identifier type="local"&gt;%value%&lt;/identifier&gt;</value>
             </create>
             <read>
-              <path>mods:identifier[@type="local"]</path>
+              <path>mods:identifier[@type='local']</path>
               <context>parent</context>
             </read>
             <update>
@@ -194,8 +194,8 @@
               <access>TRUE</access>
               <collapsed>FALSE</collapsed>
               <collapsible>FALSE</collapsible>
-              <default_value>Tennessee Alumnus. Volume #, Issue #, YYYY month</default_value>
-              <description>Enter the title followed by the volume and issue number, followed by the date. Replace "#", "YYYY", and "month" (write out the full name). Tennessee Alumnus. Volume 3, Issue 1, 1919 January</description>
+              <default_value>Tennessee alumnus, volume #, issue #, YYYY season</default_value>
+              <description>Enter the title followed by the volume and issue number, followed by the date. Replace "#", "YYYY", and "season" (winter, spring, summer, fall). Ex: Tennessee alumnus, volume 3, issue 1, 1919 winter</description>
               <disabled>FALSE</disabled>
               <executes_submit_callback>FALSE</executes_submit_callback>
               <multiple>FALSE</multiple>
@@ -259,6 +259,137 @@
         </properties>
         <children/>
       </element>
+      <element name="originInfo">
+        <properties>
+          <type>markup</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>element</type>
+              <prefix>NULL</prefix>
+              <value>originInfo</value>
+            </create>
+            <read>
+              <path>mods:originInfo</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children>
+          <element name="dateCreated">
+            <properties>
+              <type>textfield</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <description>Enter the publication year of the issue in hand.</description>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <title>Date Created</title>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>dateCreated</value>
+                </create>
+                <read>
+                  <path>mods:dateCreated</path>
+                  <context>parent</context>
+                </read>
+                <update>
+                  <path>self::node()</path>
+                  <context>self</context>
+                </update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="publisher">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>University of Tennessee (System). National Alumni Association</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>publisher</value>
+                </create>
+                <read>
+                  <path>mods:publisher</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="placeTerm">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;place supplied="yes"&gt;&lt;placeTerm type="text"&gt;Knoxville (Tenn.)&lt;/placeTerm&gt;&lt;/place&gt;</value>
+                </create>
+                <read>
+                  <path>mods:place/mods:placeTerm</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
+      </element>
       <element name="physicalDescription">
         <properties>
           <type>markup</type>
@@ -312,6 +443,37 @@
                 </create>
                 <read>
                   <path>mods:form</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="extent">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;extent&gt;1 magazine&lt;/extent&gt;</value>
+                </create>
+                <read>
+                  <path>mods:extent</path>
                   <context>parent</context>
                 </read>
                 <update>NULL</update>
@@ -450,6 +612,387 @@
         </properties>
         <children/>
       </element>
+      <element name="subject2">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;subject authority="lcsh" valueURI="http://id.loc.gov/authorities/subjects/sh2010114633"&gt;&lt;topic&gt;State universities and colleges--United States&lt;/topic&gt;&lt;/subject&gt;</value>
+            </create>
+            <read>
+              <path>mods:subject[@valueURI="http://id.loc.gov/authorities/subjects/sh2010114633"]</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
+      </element>
+      <element name="geographicSubject">
+        <properties>
+          <type>markup</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>element</type>
+              <prefix>NULL</prefix>
+              <value>subject</value>
+            </create>
+            <read>
+              <path>mods:subject</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children>
+          <element name="valueURI">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>http://id.loc.gov/authorities/names/n79060965</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>attribute</type>
+                  <prefix>NULL</prefix>
+                  <value>valueURI</value>
+                </create>
+                <read>
+                  <path>mods:geographic/@valueURI</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="authority">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>naf</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>attribute</type>
+                  <prefix>NULL</prefix>
+                  <value>authority</value>
+                </create>
+                <read>
+                  <path>mods:geographic/@authority</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="geographic">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <default_value>Tennessee</default_value>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>element</type>
+                  <prefix>NULL</prefix>
+                  <value>geographic</value>
+                </create>
+                <read>
+                  <path>mods:geographic</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
+      </element>
+      <element name="note">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;note&gt;Issue numbering varies.&lt;/note&gt;</value>
+            </create>
+            <read>
+              <path>mods:note</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
+      </element>
+      <element name="projectTitle">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;relatedItem displayLabel="Project" type="host"&gt;&lt;titleInfo&gt;&lt;nonSort&gt;The&lt;/nonSort&gt;&lt;title&gt;Tennessee Alumnus&lt;/title&gt;&lt;/titleInfo&gt;&lt;/relatedItem&gt;</value>
+            </create>
+            <read>
+              <path>mods:relatedItem[@displayLabel="Project"]/child::*</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
+      </element>
+      <element name="physicalLocation">
+        <properties>
+          <type>hidden</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>xml</type>
+              <prefix>NULL</prefix>
+              <value>&lt;location&gt;&lt;physicalLocation valueURI="http://id.loc.gov/authorities/names/no2014027633"&gt;University of Tennessee, Knoxville. Special Collections&lt;/physicalLocation&gt;&lt;/location&gt;</value>
+            </create>
+            <read>
+              <path>mods:location[mods:physicalLocation]</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children/>
+      </element>
+      <element name="recordInfo">
+        <properties>
+          <type>markup</type>
+          <access>TRUE</access>
+          <collapsed>FALSE</collapsed>
+          <collapsible>FALSE</collapsible>
+          <disabled>FALSE</disabled>
+          <executes_submit_callback>FALSE</executes_submit_callback>
+          <multiple>FALSE</multiple>
+          <required>FALSE</required>
+          <resizable>FALSE</resizable>
+          <tree>TRUE</tree>
+          <actions>
+            <create>
+              <path>self::node()</path>
+              <context>parent</context>
+              <schema/>
+              <type>element</type>
+              <prefix>NULL</prefix>
+              <value>recordInfo</value>
+            </create>
+            <read>
+              <path>mods:recordInfo</path>
+              <context>parent</context>
+            </read>
+            <update>NULL</update>
+            <delete>NULL</delete>
+          </actions>
+        </properties>
+        <children>
+          <element name="recordContentSource">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;recordContentSource authority="naf" valueURI="http://id.loc.gov/authorities/names/n87808088"&gt;University of Tennessee, Knoxville. Libraries&lt;/recordContentSource&gt;</value>
+                </create>
+                <read>
+                  <path>mods:recordContentSource</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="recordOrigin">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;recordOrigin&gt;
+Created and edited in general conformance to MODS Guidelines (Version 3.5).
+&lt;/recordOrigin&gt;</value>
+                </create>
+                <read>
+                  <path>mods:recordOrigin</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+          <element name="languageOfCataloging">
+            <properties>
+              <type>hidden</type>
+              <access>TRUE</access>
+              <collapsed>FALSE</collapsed>
+              <collapsible>FALSE</collapsible>
+              <disabled>FALSE</disabled>
+              <executes_submit_callback>FALSE</executes_submit_callback>
+              <multiple>FALSE</multiple>
+              <required>FALSE</required>
+              <resizable>FALSE</resizable>
+              <tree>TRUE</tree>
+              <actions>
+                <create>
+                  <path>self::node()</path>
+                  <context>parent</context>
+                  <schema/>
+                  <type>xml</type>
+                  <prefix>NULL</prefix>
+                  <value>&lt;languageOfCataloging&gt;
+&lt;languageTerm authority="iso639-2b" type="text"&gt;English&lt;/languageTerm&gt;
+&lt;/languageOfCataloging&gt;</value>
+                </create>
+                <read>
+                  <path>mods:languageOfCataloging</path>
+                  <context>parent</context>
+                </read>
+                <update>NULL</update>
+                <delete>NULL</delete>
+              </actions>
+            </properties>
+            <children/>
+          </element>
+        </children>
+      </element>
       <element name="accessCondition">
         <properties>
           <type>hidden</type>
@@ -469,7 +1012,7 @@
               <schema/>
               <type>xml</type>
               <prefix>NULL</prefix>
-              <value>&lt;accessCondition type="use and reproduction" xlink:href="http://rightsstatements.org/vocab/InC/1.0/"&gt;In Copyright&lt;/accessCondition&gt;</value>
+              <value>&lt;accessCondition type="use and reproduction" xlink:href="http://rightsstatements.org/vocab/InC-EDU/1.0/"&gt;In Copyright - Educational Use Permitted&lt;/accessCondition&gt;</value>
             </create>
             <read>
               <path>mods:accessCondition</path>
