@@ -313,7 +313,7 @@
                   <value>dateCreated</value>
                 </create>
                 <read>
-                  <path>mods:dateCreated</path>
+                  <path>mods:dateCreated[not(@encoding)]</path>
                   <context>parent</context>
                 </read>
                 <update>
