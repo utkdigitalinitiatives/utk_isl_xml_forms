@@ -787,62 +787,6 @@
                 </properties>
                 <children/>
               </element>
-              <element name="valueURI">
-                <properties>
-                  <type>select</type>
-                  <access>TRUE</access>
-                  <collapsed>FALSE</collapsed>
-                  <collapsible>FALSE</collapsible>
-                  <description>Select a value that matches the term you chose above</description>
-                  <disabled>FALSE</disabled>
-                  <executes_submit_callback>FALSE</executes_submit_callback>
-                  <multiple>FALSE</multiple>
-                  <options>
-                    <index key="">-</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85004317">valueURI for American fiction</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh2007101067">valueURI for American poetry--21st century--Periodicals</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85004407">valueURI for American prose literature</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85004424">valueURI for American wit and humor</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh99002613">valueURI for Black-and-white photography</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85029403">valueURI for Composition (Music)</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh2009008117">valueURI for Creative nonfiction</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85043355">valueURI for English essays</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85047539">valueURI for Feature writing</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85067568">valueURI for Interviews</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85077519">valueURI for Literature--History and criticism</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh2006004388">valueURI for Magazine illustration--21st century</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh85088956">valueURI for Musical criticism</index>
-                    <index key="http://id.loc.gov/authorities/subjects/sh2008109275">valueURI for Photography, Artistic--Periodicals</index>
-                  </options>
-                  <required>FALSE</required>
-                  <resizable>FALSE</resizable>
-                  <title>valueURI</title>
-                  <tree>TRUE</tree>
-                  <actions>
-                    <create>
-                      <path>self::node()</path>
-                      <context>parent</context>
-                      <schema/>
-                      <type>attribute</type>
-                      <prefix>NULL</prefix>
-                      <value>valueURI</value>
-                    </create>
-                    <read>
-                      <path>mods:subject/@valueURI[not(@valueURI="http://id.loc.gov/authorities/subjects/sh85028351")][not(@valueURI="http://id.loc.gov/authorities/subjects/sh8800203")][not(@valueURI="http://id.loc.gov/authorities/subjects/sh2008005687")]</path>
-                      <context>parent</context>
-                    </read>
-                    <update>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </update>
-                    <delete>
-                      <path>self::node()</path>
-                      <context>self</context>
-                    </delete>
-                  </actions>
-                </properties>
-                <children/>
-              </element>
             </children>
           </element>
         </children>
